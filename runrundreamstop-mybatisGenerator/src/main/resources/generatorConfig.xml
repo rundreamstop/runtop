@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <properties resource="mybatis.properties"/>
+    <!-- 数据库驱动包位置 -->
+    <classPathEntry location="${jdbc.path}"/>
+    <classPathEntry location="${jdbc.core.path}"/>
+
+    <context id="mybatis-generator" targetRuntime="MyBatis3">
+
+        <property name="javaFileEncoding" value="${mybatis.javaFileEncoding}"/>
+
+        <!-- 使用自带序列化插件 -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!-- 使用自定义的插件 -->
+        <plugin type="mybatisGenerator.com.plugin.LombokPlugin"/>
+
+        <commentGenerator type="mybatisGenerator.com.plugin.SimpleCommentGenerator">
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!-- 数据库链接URL、用户名、密码 -->
+        <jdbcConnection driverClass="${jdbc.driver}"
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.username}" password="${jdbc.password}">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaTypeResolver>
+
+        <!-- 生成实体类的包名和位置 -->
+        <javaModelGenerator targetPackage="${mybatis.base.model.Model}"
+                            targetProject="${mybatis.project}">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 生成的SQL映射文件包名和位置 -->
+        <sqlMapGenerator targetPackage="${mybatis.mapping.package}"
+                         targetProject="${mybatis.project}">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 生成dao的包名和位置 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="${mybatis.dao.package}"
+                             targetProject="${mybatis.project}">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
+
+        <!--<table schema="" tableName="base_school" domainObjectName="BaseSchoolModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="" tableName="system_basic_config" domainObjectName="SystemBasicConfigModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="" tableName="base_hot_search" domainObjectName="BaseHotSearchModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="" tableName="base_high_school" domainObjectName="BaseHighSchoolModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="" tableName="system_message" domainObjectName="SystemMessageModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="" tableName="wechat_channel_config" domainObjectName="WechatChannelConfigModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="" tableName="wechat_channel_detail" domainObjectName="WechatChannelDetailModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="" tableName="order_payment_notify" domainObjectName="OrderPaymentNotifyModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+
+        <!--&lt;!&ndash; 代理相关表 &ndash;&gt;-->
+        <!--<table schema="" tableName="proxy_config_info" domainObjectName="ProxyConfigInfoModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="" tableName="proxy_user_detail" domainObjectName="ProxyUserDetailModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="" tableName="proxy_trade_record" domainObjectName="ProxyTradeRecordModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="" tableName="system_search_record" domainObjectName="SystemSearchRecordModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="" tableName="recruit_plan" domainObjectName="RecruitPlanModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="" tableName="outside_member" domainObjectName="OutsideMemberModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="" tableName="zhaoban_second_college" domainObjectName="ZhaobanSecondCollegeModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="" tableName="zhaoban_stu_follow" domainObjectName="ZhaobanStuFollowModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="" tableName="zhaoban_student" domainObjectName="ZhaobanStudentModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="" tableName="zhaoban_teacher_info" domainObjectName="ZhaobanTeacherInfoModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="" tableName="zhaoban_user_student" domainObjectName="ZhaobanUserStudentModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="" tableName="task_info_user_search" domainObjectName="TaskInfoUserSearchModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="" tableName="base_achievement_ranking" domainObjectName="BaseAchievementRankingModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="" tableName="sys_task_record" domainObjectName="SysTaskRecordModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="" tableName="wechat_member_achievement" domainObjectName="WechatMemberAchievementModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="" tableName="system_basic_config" domainObjectName="SystemBasicConfigModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="" tableName="wechat_member_volunteer_record" domainObjectName="WechatMemberVolunteerRecordModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table schema="" tableName="school_major_card_info" domainObjectName="SchoolMajorCardInfoModel">-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--        <table schema="" tableName="order_info" domainObjectName="OrderInfoModel">-->
+        <!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--        </table>-->
+
+        <!--        <table schema="" tableName="order_detail" domainObjectName="OrderDetailModel">-->
+        <!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--        </table>-->
+
+        <!--        <table schema="" tableName="wechat_member" domainObjectName="WechatMemberModel">-->
+        <!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--        </table>-->
+
+        <!--        <table schema="" tableName="account_info" domainObjectName="AccountInfoModel">-->
+        <!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--        </table>-->
+
+        <!--        <table schema="" tableName="account_record" domainObjectName="AccountRecordModel">-->
+        <!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--        </table>-->
+
+        <!--        <table schema="" tableName="system_integration_config" domainObjectName="SystemIntegrationConfigModel">-->
+        <!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--        </table>-->
+
+        <!--        <table schema="" tableName="system_img_config" domainObjectName="SystemImgConfigModel">-->
+        <!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--        </table>-->
+
+        <!--<table schema="" tableName="edu_member" domainObjectName="EduMemberModel">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table schema="" tableName="edu_member_wechat" domainObjectName="EduMemberWechatModel">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table schema="" tableName="edu_member_bank" domainObjectName="EduMemberBankModel">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>-->
+
+
+<!--        <table schema="" tableName="sys_birthday_wish" domainObjectName="SysBirthdayWishModel">-->
+<!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+<!--        </table>-->
+
+<!--        <table schema="" tableName="system_message" domainObjectName="SystemMessageModel">-->
+<!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+<!--        </table>-->
+
+<!--        <table schema="" tableName="edu_member_bank" domainObjectName="EduMemberBankModel">-->
+<!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+<!--        </table>-->
+
+
+        <!--<table schema="" tableName="sys_message_push" domainObjectName="SysMessagePushModel">-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="" tableName="edu_piano_room_record" domainObjectName="EduPianoRoomRecordModel">-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+
+        <!-- <table schema="" tableName="edu_member_more" domainObjectName="EduMemberMoreModel">
+             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+         </table>
+
+         <table schema="" tableName="edu_dictionary" domainObjectName="EduDictionaryModel">
+             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+         </table>-->
+
+        <!--<table schema="" tableName="edu_major" domainObjectName="EduMajorModel">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>-->
+
+        <table schema="" tableName="edu_course_resources" domainObjectName="EduCourseResourcesModel">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+    </context>
+</generatorConfiguration>

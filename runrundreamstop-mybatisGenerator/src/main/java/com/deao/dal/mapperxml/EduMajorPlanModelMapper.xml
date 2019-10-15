@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.deao.dal.dao.auto.EduMajorPlanModelMapper" >
+  <resultMap id="BaseResultMap" type="com.deao.dal.daomain.auto.EduMajorPlanModel" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="grade" property="grade" jdbcType="VARCHAR" />
+    <result column="major_id" property="majorId" jdbcType="VARCHAR" />
+    <result column="major_name" property="majorName" jdbcType="VARCHAR" />
+    <result column="teaching_module" property="teachingModule" jdbcType="VARCHAR" />
+    <result column="teaching_module_values" property="teachingModuleValues" jdbcType="VARCHAR" />
+    <result column="nature_curriculum" property="natureCurriculum" jdbcType="VARCHAR" />
+    <result column="nature_curriculum_values" property="natureCurriculumValues" jdbcType="VARCHAR" />
+    <result column="course_categories" property="courseCategories" jdbcType="VARCHAR" />
+    <result column="course_categories_values" property="courseCategoriesValues" jdbcType="VARCHAR" />
+    <result column="examination_methods" property="examinationMethods" jdbcType="VARCHAR" />
+    <result column="examination_methods_values" property="examinationMethodsValues" jdbcType="VARCHAR" />
+    <result column="course_code" property="courseCode" jdbcType="VARCHAR" />
+    <result column="course_name" property="courseName" jdbcType="VARCHAR" />
+    <result column="achieve_credits" property="achieveCredits" jdbcType="VARCHAR" />
+    <result column="total_hours" property="totalHours" jdbcType="VARCHAR" />
+    <result column="teaching_hours" property="teachingHours" jdbcType="VARCHAR" />
+    <result column="practical_hours" property="practicalHours" jdbcType="VARCHAR" />
+    <result column="semester1" property="semester1" jdbcType="VARCHAR" />
+    <result column="semester2" property="semester2" jdbcType="VARCHAR" />
+    <result column="semester3" property="semester3" jdbcType="VARCHAR" />
+    <result column="semester4" property="semester4" jdbcType="VARCHAR" />
+    <result column="semester5" property="semester5" jdbcType="VARCHAR" />
+    <result column="semester6" property="semester6" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="remark_extend" property="remarkExtend" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, grade, major_id, major_name, teaching_module, teaching_module_values, nature_curriculum, 
+    nature_curriculum_values, course_categories, course_categories_values, examination_methods, 
+    examination_methods_values, course_code, course_name, achieve_credits, total_hours, 
+    teaching_hours, practical_hours, semester1, semester2, semester3, semester4, semester5, 
+    semester6, remark, remark_extend, create_time, update_time, is_delete
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.deao.dal.daomain.auto.EduMajorPlanModelExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from edu_major_plan
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from edu_major_plan
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from edu_major_plan
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.deao.dal.daomain.auto.EduMajorPlanModelExample" >
+    delete from edu_major_plan
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.deao.dal.daomain.auto.EduMajorPlanModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into edu_major_plan (grade, major_id, major_name, 
+      teaching_module, teaching_module_values, nature_curriculum, 
+      nature_curriculum_values, course_categories, 
+      course_categories_values, examination_methods, 
+      examination_methods_values, course_code, course_name, 
+      achieve_credits, total_hours, teaching_hours, 
+      practical_hours, semester1, semester2, 
+      semester3, semester4, semester5, 
+      semester6, remark, remark_extend, 
+      create_time, update_time, is_delete
+      )
+    values (#{grade,jdbcType=VARCHAR}, #{majorId,jdbcType=VARCHAR}, #{majorName,jdbcType=VARCHAR}, 
+      #{teachingModule,jdbcType=VARCHAR}, #{teachingModuleValues,jdbcType=VARCHAR}, #{natureCurriculum,jdbcType=VARCHAR}, 
+      #{natureCurriculumValues,jdbcType=VARCHAR}, #{courseCategories,jdbcType=VARCHAR}, 
+      #{courseCategoriesValues,jdbcType=VARCHAR}, #{examinationMethods,jdbcType=VARCHAR}, 
+      #{examinationMethodsValues,jdbcType=VARCHAR}, #{courseCode,jdbcType=VARCHAR}, #{courseName,jdbcType=VARCHAR}, 
+      #{achieveCredits,jdbcType=VARCHAR}, #{totalHours,jdbcType=VARCHAR}, #{teachingHours,jdbcType=VARCHAR}, 
+      #{practicalHours,jdbcType=VARCHAR}, #{semester1,jdbcType=VARCHAR}, #{semester2,jdbcType=VARCHAR}, 
+      #{semester3,jdbcType=VARCHAR}, #{semester4,jdbcType=VARCHAR}, #{semester5,jdbcType=VARCHAR}, 
+      #{semester6,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{remarkExtend,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.deao.dal.daomain.auto.EduMajorPlanModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into edu_major_plan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="grade != null" >
+        grade,
+      </if>
+      <if test="majorId != null" >
+        major_id,
+      </if>
+      <if test="majorName != null" >
+        major_name,
+      </if>
+      <if test="teachingModule != null" >
+        teaching_module,
+      </if>
+      <if test="teachingModuleValues != null" >
+        teaching_module_values,
+      </if>
+      <if test="natureCurriculum != null" >
+        nature_curriculum,
+      </if>
+      <if test="natureCurriculumValues != null" >
+        nature_curriculum_values,
+      </if>
+      <if test="courseCategories != null" >
+        course_categories,
+      </if>
+      <if test="courseCategoriesValues != null" >
+        course_categories_values,
+      </if>
+      <if test="examinationMethods != null" >
+        examination_methods,
+      </if>
+      <if test="examinationMethodsValues != null" >
+        examination_methods_values,
+      </if>
+      <if test="courseCode != null" >
+        course_code,
+      </if>
+      <if test="courseName != null" >
+        course_name,
+      </if>
+      <if test="achieveCredits != null" >
+        achieve_credits,
+      </if>
+      <if test="totalHours != null" >
+        total_hours,
+      </if>
+      <if test="teachingHours != null" >
+        teaching_hours,
+      </if>
+      <if test="practicalHours != null" >
+        practical_hours,
+      </if>
+      <if test="semester1 != null" >
+        semester1,
+      </if>
+      <if test="semester2 != null" >
+        semester2,
+      </if>
+      <if test="semester3 != null" >
+        semester3,
+      </if>
+      <if test="semester4 != null" >
+        semester4,
+      </if>
+      <if test="semester5 != null" >
+        semester5,
+      </if>
+      <if test="semester6 != null" >
+        semester6,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="remarkExtend != null" >
+        remark_extend,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="grade != null" >
+        #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="majorId != null" >
+        #{majorId,jdbcType=VARCHAR},
+      </if>
+      <if test="majorName != null" >
+        #{majorName,jdbcType=VARCHAR},
+      </if>
+      <if test="teachingModule != null" >
+        #{teachingModule,jdbcType=VARCHAR},
+      </if>
+      <if test="teachingModuleValues != null" >
+        #{teachingModuleValues,jdbcType=VARCHAR},
+      </if>
+      <if test="natureCurriculum != null" >
+        #{natureCurriculum,jdbcType=VARCHAR},
+      </if>
+      <if test="natureCurriculumValues != null" >
+        #{natureCurriculumValues,jdbcType=VARCHAR},
+      </if>
+      <if test="courseCategories != null" >
+        #{courseCategories,jdbcType=VARCHAR},
+      </if>
+      <if test="courseCategoriesValues != null" >
+        #{courseCategoriesValues,jdbcType=VARCHAR},
+      </if>
+      <if test="examinationMethods != null" >
+        #{examinationMethods,jdbcType=VARCHAR},
+      </if>
+      <if test="examinationMethodsValues != null" >
+        #{examinationMethodsValues,jdbcType=VARCHAR},
+      </if>
+      <if test="courseCode != null" >
+        #{courseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="courseName != null" >
+        #{courseName,jdbcType=VARCHAR},
+      </if>
+      <if test="achieveCredits != null" >
+        #{achieveCredits,jdbcType=VARCHAR},
+      </if>
+      <if test="totalHours != null" >
+        #{totalHours,jdbcType=VARCHAR},
+      </if>
+      <if test="teachingHours != null" >
+        #{teachingHours,jdbcType=VARCHAR},
+      </if>
+      <if test="practicalHours != null" >
+        #{practicalHours,jdbcType=VARCHAR},
+      </if>
+      <if test="semester1 != null" >
+        #{semester1,jdbcType=VARCHAR},
+      </if>
+      <if test="semester2 != null" >
+        #{semester2,jdbcType=VARCHAR},
+      </if>
+      <if test="semester3 != null" >
+        #{semester3,jdbcType=VARCHAR},
+      </if>
+      <if test="semester4 != null" >
+        #{semester4,jdbcType=VARCHAR},
+      </if>
+      <if test="semester5 != null" >
+        #{semester5,jdbcType=VARCHAR},
+      </if>
+      <if test="semester6 != null" >
+        #{semester6,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remarkExtend != null" >
+        #{remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.deao.dal.daomain.auto.EduMajorPlanModelExample" resultType="java.lang.Integer" >
+    select count(*) from edu_major_plan
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update edu_major_plan
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.grade != null" >
+        grade = #{record.grade,jdbcType=VARCHAR},
+      </if>
+      <if test="record.majorId != null" >
+        major_id = #{record.majorId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.majorName != null" >
+        major_name = #{record.majorName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teachingModule != null" >
+        teaching_module = #{record.teachingModule,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teachingModuleValues != null" >
+        teaching_module_values = #{record.teachingModuleValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.natureCurriculum != null" >
+        nature_curriculum = #{record.natureCurriculum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.natureCurriculumValues != null" >
+        nature_curriculum_values = #{record.natureCurriculumValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseCategories != null" >
+        course_categories = #{record.courseCategories,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseCategoriesValues != null" >
+        course_categories_values = #{record.courseCategoriesValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.examinationMethods != null" >
+        examination_methods = #{record.examinationMethods,jdbcType=VARCHAR},
+      </if>
+      <if test="record.examinationMethodsValues != null" >
+        examination_methods_values = #{record.examinationMethodsValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseCode != null" >
+        course_code = #{record.courseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseName != null" >
+        course_name = #{record.courseName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.achieveCredits != null" >
+        achieve_credits = #{record.achieveCredits,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalHours != null" >
+        total_hours = #{record.totalHours,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teachingHours != null" >
+        teaching_hours = #{record.teachingHours,jdbcType=VARCHAR},
+      </if>
+      <if test="record.practicalHours != null" >
+        practical_hours = #{record.practicalHours,jdbcType=VARCHAR},
+      </if>
+      <if test="record.semester1 != null" >
+        semester1 = #{record.semester1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.semester2 != null" >
+        semester2 = #{record.semester2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.semester3 != null" >
+        semester3 = #{record.semester3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.semester4 != null" >
+        semester4 = #{record.semester4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.semester5 != null" >
+        semester5 = #{record.semester5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.semester6 != null" >
+        semester6 = #{record.semester6,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remarkExtend != null" >
+        remark_extend = #{record.remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isDelete != null" >
+        is_delete = #{record.isDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update edu_major_plan
+    set id = #{record.id,jdbcType=INTEGER},
+      grade = #{record.grade,jdbcType=VARCHAR},
+      major_id = #{record.majorId,jdbcType=VARCHAR},
+      major_name = #{record.majorName,jdbcType=VARCHAR},
+      teaching_module = #{record.teachingModule,jdbcType=VARCHAR},
+      teaching_module_values = #{record.teachingModuleValues,jdbcType=VARCHAR},
+      nature_curriculum = #{record.natureCurriculum,jdbcType=VARCHAR},
+      nature_curriculum_values = #{record.natureCurriculumValues,jdbcType=VARCHAR},
+      course_categories = #{record.courseCategories,jdbcType=VARCHAR},
+      course_categories_values = #{record.courseCategoriesValues,jdbcType=VARCHAR},
+      examination_methods = #{record.examinationMethods,jdbcType=VARCHAR},
+      examination_methods_values = #{record.examinationMethodsValues,jdbcType=VARCHAR},
+      course_code = #{record.courseCode,jdbcType=VARCHAR},
+      course_name = #{record.courseName,jdbcType=VARCHAR},
+      achieve_credits = #{record.achieveCredits,jdbcType=VARCHAR},
+      total_hours = #{record.totalHours,jdbcType=VARCHAR},
+      teaching_hours = #{record.teachingHours,jdbcType=VARCHAR},
+      practical_hours = #{record.practicalHours,jdbcType=VARCHAR},
+      semester1 = #{record.semester1,jdbcType=VARCHAR},
+      semester2 = #{record.semester2,jdbcType=VARCHAR},
+      semester3 = #{record.semester3,jdbcType=VARCHAR},
+      semester4 = #{record.semester4,jdbcType=VARCHAR},
+      semester5 = #{record.semester5,jdbcType=VARCHAR},
+      semester6 = #{record.semester6,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      remark_extend = #{record.remarkExtend,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{record.isDelete,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.deao.dal.daomain.auto.EduMajorPlanModel" >
+    update edu_major_plan
+    <set >
+      <if test="grade != null" >
+        grade = #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="majorId != null" >
+        major_id = #{majorId,jdbcType=VARCHAR},
+      </if>
+      <if test="majorName != null" >
+        major_name = #{majorName,jdbcType=VARCHAR},
+      </if>
+      <if test="teachingModule != null" >
+        teaching_module = #{teachingModule,jdbcType=VARCHAR},
+      </if>
+      <if test="teachingModuleValues != null" >
+        teaching_module_values = #{teachingModuleValues,jdbcType=VARCHAR},
+      </if>
+      <if test="natureCurriculum != null" >
+        nature_curriculum = #{natureCurriculum,jdbcType=VARCHAR},
+      </if>
+      <if test="natureCurriculumValues != null" >
+        nature_curriculum_values = #{natureCurriculumValues,jdbcType=VARCHAR},
+      </if>
+      <if test="courseCategories != null" >
+        course_categories = #{courseCategories,jdbcType=VARCHAR},
+      </if>
+      <if test="courseCategoriesValues != null" >
+        course_categories_values = #{courseCategoriesValues,jdbcType=VARCHAR},
+      </if>
+      <if test="examinationMethods != null" >
+        examination_methods = #{examinationMethods,jdbcType=VARCHAR},
+      </if>
+      <if test="examinationMethodsValues != null" >
+        examination_methods_values = #{examinationMethodsValues,jdbcType=VARCHAR},
+      </if>
+      <if test="courseCode != null" >
+        course_code = #{courseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="courseName != null" >
+        course_name = #{courseName,jdbcType=VARCHAR},
+      </if>
+      <if test="achieveCredits != null" >
+        achieve_credits = #{achieveCredits,jdbcType=VARCHAR},
+      </if>
+      <if test="totalHours != null" >
+        total_hours = #{totalHours,jdbcType=VARCHAR},
+      </if>
+      <if test="teachingHours != null" >
+        teaching_hours = #{teachingHours,jdbcType=VARCHAR},
+      </if>
+      <if test="practicalHours != null" >
+        practical_hours = #{practicalHours,jdbcType=VARCHAR},
+      </if>
+      <if test="semester1 != null" >
+        semester1 = #{semester1,jdbcType=VARCHAR},
+      </if>
+      <if test="semester2 != null" >
+        semester2 = #{semester2,jdbcType=VARCHAR},
+      </if>
+      <if test="semester3 != null" >
+        semester3 = #{semester3,jdbcType=VARCHAR},
+      </if>
+      <if test="semester4 != null" >
+        semester4 = #{semester4,jdbcType=VARCHAR},
+      </if>
+      <if test="semester5 != null" >
+        semester5 = #{semester5,jdbcType=VARCHAR},
+      </if>
+      <if test="semester6 != null" >
+        semester6 = #{semester6,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remarkExtend != null" >
+        remark_extend = #{remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.deao.dal.daomain.auto.EduMajorPlanModel" >
+    update edu_major_plan
+    set grade = #{grade,jdbcType=VARCHAR},
+      major_id = #{majorId,jdbcType=VARCHAR},
+      major_name = #{majorName,jdbcType=VARCHAR},
+      teaching_module = #{teachingModule,jdbcType=VARCHAR},
+      teaching_module_values = #{teachingModuleValues,jdbcType=VARCHAR},
+      nature_curriculum = #{natureCurriculum,jdbcType=VARCHAR},
+      nature_curriculum_values = #{natureCurriculumValues,jdbcType=VARCHAR},
+      course_categories = #{courseCategories,jdbcType=VARCHAR},
+      course_categories_values = #{courseCategoriesValues,jdbcType=VARCHAR},
+      examination_methods = #{examinationMethods,jdbcType=VARCHAR},
+      examination_methods_values = #{examinationMethodsValues,jdbcType=VARCHAR},
+      course_code = #{courseCode,jdbcType=VARCHAR},
+      course_name = #{courseName,jdbcType=VARCHAR},
+      achieve_credits = #{achieveCredits,jdbcType=VARCHAR},
+      total_hours = #{totalHours,jdbcType=VARCHAR},
+      teaching_hours = #{teachingHours,jdbcType=VARCHAR},
+      practical_hours = #{practicalHours,jdbcType=VARCHAR},
+      semester1 = #{semester1,jdbcType=VARCHAR},
+      semester2 = #{semester2,jdbcType=VARCHAR},
+      semester3 = #{semester3,jdbcType=VARCHAR},
+      semester4 = #{semester4,jdbcType=VARCHAR},
+      semester5 = #{semester5,jdbcType=VARCHAR},
+      semester6 = #{semester6,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      remark_extend = #{remarkExtend,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

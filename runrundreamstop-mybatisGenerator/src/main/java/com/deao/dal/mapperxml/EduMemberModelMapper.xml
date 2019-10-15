@@ -1,0 +1,2193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.deao.dal.dao.auto.EduMemberModelMapper">
+  <resultMap id="BaseResultMap" type="com.deao.dal.daomain.auto.EduMemberModel">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="stu_name" jdbcType="VARCHAR" property="stuName" />
+    <result column="stu_name_letter" jdbcType="VARCHAR" property="stuNameLetter" />
+    <result column="stu_phone" jdbcType="VARCHAR" property="stuPhone" />
+    <result column="stu_id" jdbcType="VARCHAR" property="stuId" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="nation" jdbcType="VARCHAR" property="nation" />
+    <result column="id_number" jdbcType="VARCHAR" property="idNumber" />
+    <result column="birthday_type" jdbcType="VARCHAR" property="birthdayType" />
+    <result column="birthday_type_values" jdbcType="VARCHAR" property="birthdayTypeValues" />
+    <result column="stu_birthday" jdbcType="VARCHAR" property="stuBirthday" />
+    <result column="stu_faculty" jdbcType="VARCHAR" property="stuFaculty" />
+    <result column="stu_faculty_values" jdbcType="VARCHAR" property="stuFacultyValues" />
+    <result column="stu_profession" jdbcType="VARCHAR" property="stuProfession" />
+    <result column="stu_profession_values" jdbcType="VARCHAR" property="stuProfessionValues" />
+    <result column="stu_class" jdbcType="VARCHAR" property="stuClass" />
+    <result column="urgent_name" jdbcType="VARCHAR" property="urgentName" />
+    <result column="urgent_phone" jdbcType="VARCHAR" property="urgentPhone" />
+    <result column="stu_status" jdbcType="VARCHAR" property="stuStatus" />
+    <result column="stu_status_values" jdbcType="VARCHAR" property="stuStatusValues" />
+    <result column="member_role" jdbcType="VARCHAR" property="memberRole" />
+    <result column="member_role_values" jdbcType="VARCHAR" property="memberRoleValues" />
+    <result column="login_number" jdbcType="INTEGER" property="loginNumber" />
+    <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <result column="school_system" jdbcType="VARCHAR" property="schoolSystem" />
+    <result column="politic_countenance" jdbcType="VARCHAR" property="politicCountenance" />
+    <result column="politic_countenance_values" jdbcType="VARCHAR" property="politicCountenanceValues" />
+    <result column="student_status" jdbcType="VARCHAR" property="studentStatus" />
+    <result column="student_status_values" jdbcType="VARCHAR" property="studentStatusValues" />
+    <result column="stu_photo_url" jdbcType="VARCHAR" property="stuPhotoUrl" />
+    <result column="stu_grade" jdbcType="VARCHAR" property="stuGrade" />
+    <result column="stu_grade_values" jdbcType="VARCHAR" property="stuGradeValues" />
+    <result column="mail_box" jdbcType="VARCHAR" property="mailBox" />
+    <result column="wechat_number" jdbcType="VARCHAR" property="wechatNumber" />
+    <result column="family_address" jdbcType="VARCHAR" property="familyAddress" />
+    <result column="information_status" jdbcType="VARCHAR" property="informationStatus" />
+    <result column="information_status_values" jdbcType="VARCHAR" property="informationStatusValues" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="remark_extend" jdbcType="VARCHAR" property="remarkExtend" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, user_id, open_id, stu_name, stu_name_letter, stu_phone, stu_id, sex, nation, 
+    id_number, birthday_type, birthday_type_values, stu_birthday, stu_faculty, stu_faculty_values, 
+    stu_profession, stu_profession_values, stu_class, urgent_name, urgent_phone, stu_status, 
+    stu_status_values, member_role, member_role_values, login_number, last_login_time, 
+    school_system, politic_countenance, politic_countenance_values, student_status, student_status_values, 
+    stu_photo_url, stu_grade, stu_grade_values, mail_box, wechat_number, family_address, 
+    information_status, information_status_values, remark, remark_extend, create_time, 
+    update_time, is_delete
+  </sql>
+  <select id="selectByExample" parameterType="com.deao.dal.daomain.auto.EduMemberModelExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from edu_member
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from edu_member
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from edu_member
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.deao.dal.daomain.auto.EduMemberModelExample">
+    delete from edu_member
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.deao.dal.daomain.auto.EduMemberModel">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into edu_member (user_id, open_id, stu_name, 
+      stu_name_letter, stu_phone, stu_id, 
+      sex, nation, id_number, 
+      birthday_type, birthday_type_values, stu_birthday, 
+      stu_faculty, stu_faculty_values, stu_profession, 
+      stu_profession_values, stu_class, urgent_name, 
+      urgent_phone, stu_status, stu_status_values, 
+      member_role, member_role_values, login_number, 
+      last_login_time, school_system, politic_countenance, 
+      politic_countenance_values, student_status, 
+      student_status_values, stu_photo_url, stu_grade, 
+      stu_grade_values, mail_box, wechat_number, 
+      family_address, information_status, information_status_values, 
+      remark, remark_extend, create_time, 
+      update_time, is_delete)
+    values (#{userId,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, #{stuName,jdbcType=VARCHAR}, 
+      #{stuNameLetter,jdbcType=VARCHAR}, #{stuPhone,jdbcType=VARCHAR}, #{stuId,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, #{idNumber,jdbcType=VARCHAR}, 
+      #{birthdayType,jdbcType=VARCHAR}, #{birthdayTypeValues,jdbcType=VARCHAR}, #{stuBirthday,jdbcType=VARCHAR}, 
+      #{stuFaculty,jdbcType=VARCHAR}, #{stuFacultyValues,jdbcType=VARCHAR}, #{stuProfession,jdbcType=VARCHAR}, 
+      #{stuProfessionValues,jdbcType=VARCHAR}, #{stuClass,jdbcType=VARCHAR}, #{urgentName,jdbcType=VARCHAR}, 
+      #{urgentPhone,jdbcType=VARCHAR}, #{stuStatus,jdbcType=VARCHAR}, #{stuStatusValues,jdbcType=VARCHAR}, 
+      #{memberRole,jdbcType=VARCHAR}, #{memberRoleValues,jdbcType=VARCHAR}, #{loginNumber,jdbcType=INTEGER}, 
+      #{lastLoginTime,jdbcType=TIMESTAMP}, #{schoolSystem,jdbcType=VARCHAR}, #{politicCountenance,jdbcType=VARCHAR}, 
+      #{politicCountenanceValues,jdbcType=VARCHAR}, #{studentStatus,jdbcType=VARCHAR}, 
+      #{studentStatusValues,jdbcType=VARCHAR}, #{stuPhotoUrl,jdbcType=VARCHAR}, #{stuGrade,jdbcType=VARCHAR}, 
+      #{stuGradeValues,jdbcType=VARCHAR}, #{mailBox,jdbcType=VARCHAR}, #{wechatNumber,jdbcType=VARCHAR}, 
+      #{familyAddress,jdbcType=VARCHAR}, #{informationStatus,jdbcType=VARCHAR}, #{informationStatusValues,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{remarkExtend,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.deao.dal.daomain.auto.EduMemberModel">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into edu_member
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="openId != null">
+        open_id,
+      </if>
+      <if test="stuName != null">
+        stu_name,
+      </if>
+      <if test="stuNameLetter != null">
+        stu_name_letter,
+      </if>
+      <if test="stuPhone != null">
+        stu_phone,
+      </if>
+      <if test="stuId != null">
+        stu_id,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="nation != null">
+        nation,
+      </if>
+      <if test="idNumber != null">
+        id_number,
+      </if>
+      <if test="birthdayType != null">
+        birthday_type,
+      </if>
+      <if test="birthdayTypeValues != null">
+        birthday_type_values,
+      </if>
+      <if test="stuBirthday != null">
+        stu_birthday,
+      </if>
+      <if test="stuFaculty != null">
+        stu_faculty,
+      </if>
+      <if test="stuFacultyValues != null">
+        stu_faculty_values,
+      </if>
+      <if test="stuProfession != null">
+        stu_profession,
+      </if>
+      <if test="stuProfessionValues != null">
+        stu_profession_values,
+      </if>
+      <if test="stuClass != null">
+        stu_class,
+      </if>
+      <if test="urgentName != null">
+        urgent_name,
+      </if>
+      <if test="urgentPhone != null">
+        urgent_phone,
+      </if>
+      <if test="stuStatus != null">
+        stu_status,
+      </if>
+      <if test="stuStatusValues != null">
+        stu_status_values,
+      </if>
+      <if test="memberRole != null">
+        member_role,
+      </if>
+      <if test="memberRoleValues != null">
+        member_role_values,
+      </if>
+      <if test="loginNumber != null">
+        login_number,
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time,
+      </if>
+      <if test="schoolSystem != null">
+        school_system,
+      </if>
+      <if test="politicCountenance != null">
+        politic_countenance,
+      </if>
+      <if test="politicCountenanceValues != null">
+        politic_countenance_values,
+      </if>
+      <if test="studentStatus != null">
+        student_status,
+      </if>
+      <if test="studentStatusValues != null">
+        student_status_values,
+      </if>
+      <if test="stuPhotoUrl != null">
+        stu_photo_url,
+      </if>
+      <if test="stuGrade != null">
+        stu_grade,
+      </if>
+      <if test="stuGradeValues != null">
+        stu_grade_values,
+      </if>
+      <if test="mailBox != null">
+        mail_box,
+      </if>
+      <if test="wechatNumber != null">
+        wechat_number,
+      </if>
+      <if test="familyAddress != null">
+        family_address,
+      </if>
+      <if test="informationStatus != null">
+        information_status,
+      </if>
+      <if test="informationStatusValues != null">
+        information_status_values,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="remarkExtend != null">
+        remark_extend,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="stuName != null">
+        #{stuName,jdbcType=VARCHAR},
+      </if>
+      <if test="stuNameLetter != null">
+        #{stuNameLetter,jdbcType=VARCHAR},
+      </if>
+      <if test="stuPhone != null">
+        #{stuPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="stuId != null">
+        #{stuId,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null">
+        #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdayType != null">
+        #{birthdayType,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdayTypeValues != null">
+        #{birthdayTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="stuBirthday != null">
+        #{stuBirthday,jdbcType=VARCHAR},
+      </if>
+      <if test="stuFaculty != null">
+        #{stuFaculty,jdbcType=VARCHAR},
+      </if>
+      <if test="stuFacultyValues != null">
+        #{stuFacultyValues,jdbcType=VARCHAR},
+      </if>
+      <if test="stuProfession != null">
+        #{stuProfession,jdbcType=VARCHAR},
+      </if>
+      <if test="stuProfessionValues != null">
+        #{stuProfessionValues,jdbcType=VARCHAR},
+      </if>
+      <if test="stuClass != null">
+        #{stuClass,jdbcType=VARCHAR},
+      </if>
+      <if test="urgentName != null">
+        #{urgentName,jdbcType=VARCHAR},
+      </if>
+      <if test="urgentPhone != null">
+        #{urgentPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="stuStatus != null">
+        #{stuStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="stuStatusValues != null">
+        #{stuStatusValues,jdbcType=VARCHAR},
+      </if>
+      <if test="memberRole != null">
+        #{memberRole,jdbcType=VARCHAR},
+      </if>
+      <if test="memberRoleValues != null">
+        #{memberRoleValues,jdbcType=VARCHAR},
+      </if>
+      <if test="loginNumber != null">
+        #{loginNumber,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginTime != null">
+        #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="schoolSystem != null">
+        #{schoolSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="politicCountenance != null">
+        #{politicCountenance,jdbcType=VARCHAR},
+      </if>
+      <if test="politicCountenanceValues != null">
+        #{politicCountenanceValues,jdbcType=VARCHAR},
+      </if>
+      <if test="studentStatus != null">
+        #{studentStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="studentStatusValues != null">
+        #{studentStatusValues,jdbcType=VARCHAR},
+      </if>
+      <if test="stuPhotoUrl != null">
+        #{stuPhotoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="stuGrade != null">
+        #{stuGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="stuGradeValues != null">
+        #{stuGradeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="mailBox != null">
+        #{mailBox,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatNumber != null">
+        #{wechatNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="familyAddress != null">
+        #{familyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="informationStatus != null">
+        #{informationStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="informationStatusValues != null">
+        #{informationStatusValues,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remarkExtend != null">
+        #{remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.deao.dal.daomain.auto.EduMemberModelExample" resultType="java.lang.Integer">
+    select count(*) from edu_member
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update edu_member
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.openId != null">
+        open_id = #{record.openId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuName != null">
+        stu_name = #{record.stuName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuNameLetter != null">
+        stu_name_letter = #{record.stuNameLetter,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuPhone != null">
+        stu_phone = #{record.stuPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuId != null">
+        stu_id = #{record.stuId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null">
+        sex = #{record.sex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nation != null">
+        nation = #{record.nation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idNumber != null">
+        id_number = #{record.idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthdayType != null">
+        birthday_type = #{record.birthdayType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthdayTypeValues != null">
+        birthday_type_values = #{record.birthdayTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuBirthday != null">
+        stu_birthday = #{record.stuBirthday,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuFaculty != null">
+        stu_faculty = #{record.stuFaculty,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuFacultyValues != null">
+        stu_faculty_values = #{record.stuFacultyValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuProfession != null">
+        stu_profession = #{record.stuProfession,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuProfessionValues != null">
+        stu_profession_values = #{record.stuProfessionValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuClass != null">
+        stu_class = #{record.stuClass,jdbcType=VARCHAR},
+      </if>
+      <if test="record.urgentName != null">
+        urgent_name = #{record.urgentName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.urgentPhone != null">
+        urgent_phone = #{record.urgentPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuStatus != null">
+        stu_status = #{record.stuStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuStatusValues != null">
+        stu_status_values = #{record.stuStatusValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memberRole != null">
+        member_role = #{record.memberRole,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memberRoleValues != null">
+        member_role_values = #{record.memberRoleValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loginNumber != null">
+        login_number = #{record.loginNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.lastLoginTime != null">
+        last_login_time = #{record.lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.schoolSystem != null">
+        school_system = #{record.schoolSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="record.politicCountenance != null">
+        politic_countenance = #{record.politicCountenance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.politicCountenanceValues != null">
+        politic_countenance_values = #{record.politicCountenanceValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.studentStatus != null">
+        student_status = #{record.studentStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.studentStatusValues != null">
+        student_status_values = #{record.studentStatusValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuPhotoUrl != null">
+        stu_photo_url = #{record.stuPhotoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuGrade != null">
+        stu_grade = #{record.stuGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuGradeValues != null">
+        stu_grade_values = #{record.stuGradeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mailBox != null">
+        mail_box = #{record.mailBox,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wechatNumber != null">
+        wechat_number = #{record.wechatNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.familyAddress != null">
+        family_address = #{record.familyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.informationStatus != null">
+        information_status = #{record.informationStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.informationStatusValues != null">
+        information_status_values = #{record.informationStatusValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remarkExtend != null">
+        remark_extend = #{record.remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isDelete != null">
+        is_delete = #{record.isDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update edu_member
+    set id = #{record.id,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      open_id = #{record.openId,jdbcType=VARCHAR},
+      stu_name = #{record.stuName,jdbcType=VARCHAR},
+      stu_name_letter = #{record.stuNameLetter,jdbcType=VARCHAR},
+      stu_phone = #{record.stuPhone,jdbcType=VARCHAR},
+      stu_id = #{record.stuId,jdbcType=VARCHAR},
+      sex = #{record.sex,jdbcType=VARCHAR},
+      nation = #{record.nation,jdbcType=VARCHAR},
+      id_number = #{record.idNumber,jdbcType=VARCHAR},
+      birthday_type = #{record.birthdayType,jdbcType=VARCHAR},
+      birthday_type_values = #{record.birthdayTypeValues,jdbcType=VARCHAR},
+      stu_birthday = #{record.stuBirthday,jdbcType=VARCHAR},
+      stu_faculty = #{record.stuFaculty,jdbcType=VARCHAR},
+      stu_faculty_values = #{record.stuFacultyValues,jdbcType=VARCHAR},
+      stu_profession = #{record.stuProfession,jdbcType=VARCHAR},
+      stu_profession_values = #{record.stuProfessionValues,jdbcType=VARCHAR},
+      stu_class = #{record.stuClass,jdbcType=VARCHAR},
+      urgent_name = #{record.urgentName,jdbcType=VARCHAR},
+      urgent_phone = #{record.urgentPhone,jdbcType=VARCHAR},
+      stu_status = #{record.stuStatus,jdbcType=VARCHAR},
+      stu_status_values = #{record.stuStatusValues,jdbcType=VARCHAR},
+      member_role = #{record.memberRole,jdbcType=VARCHAR},
+      member_role_values = #{record.memberRoleValues,jdbcType=VARCHAR},
+      login_number = #{record.loginNumber,jdbcType=INTEGER},
+      last_login_time = #{record.lastLoginTime,jdbcType=TIMESTAMP},
+      school_system = #{record.schoolSystem,jdbcType=VARCHAR},
+      politic_countenance = #{record.politicCountenance,jdbcType=VARCHAR},
+      politic_countenance_values = #{record.politicCountenanceValues,jdbcType=VARCHAR},
+      student_status = #{record.studentStatus,jdbcType=VARCHAR},
+      student_status_values = #{record.studentStatusValues,jdbcType=VARCHAR},
+      stu_photo_url = #{record.stuPhotoUrl,jdbcType=VARCHAR},
+      stu_grade = #{record.stuGrade,jdbcType=VARCHAR},
+      stu_grade_values = #{record.stuGradeValues,jdbcType=VARCHAR},
+      mail_box = #{record.mailBox,jdbcType=VARCHAR},
+      wechat_number = #{record.wechatNumber,jdbcType=VARCHAR},
+      family_address = #{record.familyAddress,jdbcType=VARCHAR},
+      information_status = #{record.informationStatus,jdbcType=VARCHAR},
+      information_status_values = #{record.informationStatusValues,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      remark_extend = #{record.remarkExtend,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{record.isDelete,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.deao.dal.daomain.auto.EduMemberModel">
+    update edu_member
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="stuName != null">
+        stu_name = #{stuName,jdbcType=VARCHAR},
+      </if>
+      <if test="stuNameLetter != null">
+        stu_name_letter = #{stuNameLetter,jdbcType=VARCHAR},
+      </if>
+      <if test="stuPhone != null">
+        stu_phone = #{stuPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="stuId != null">
+        stu_id = #{stuId,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null">
+        id_number = #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdayType != null">
+        birthday_type = #{birthdayType,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdayTypeValues != null">
+        birthday_type_values = #{birthdayTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="stuBirthday != null">
+        stu_birthday = #{stuBirthday,jdbcType=VARCHAR},
+      </if>
+      <if test="stuFaculty != null">
+        stu_faculty = #{stuFaculty,jdbcType=VARCHAR},
+      </if>
+      <if test="stuFacultyValues != null">
+        stu_faculty_values = #{stuFacultyValues,jdbcType=VARCHAR},
+      </if>
+      <if test="stuProfession != null">
+        stu_profession = #{stuProfession,jdbcType=VARCHAR},
+      </if>
+      <if test="stuProfessionValues != null">
+        stu_profession_values = #{stuProfessionValues,jdbcType=VARCHAR},
+      </if>
+      <if test="stuClass != null">
+        stu_class = #{stuClass,jdbcType=VARCHAR},
+      </if>
+      <if test="urgentName != null">
+        urgent_name = #{urgentName,jdbcType=VARCHAR},
+      </if>
+      <if test="urgentPhone != null">
+        urgent_phone = #{urgentPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="stuStatus != null">
+        stu_status = #{stuStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="stuStatusValues != null">
+        stu_status_values = #{stuStatusValues,jdbcType=VARCHAR},
+      </if>
+      <if test="memberRole != null">
+        member_role = #{memberRole,jdbcType=VARCHAR},
+      </if>
+      <if test="memberRoleValues != null">
+        member_role_values = #{memberRoleValues,jdbcType=VARCHAR},
+      </if>
+      <if test="loginNumber != null">
+        login_number = #{loginNumber,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="schoolSystem != null">
+        school_system = #{schoolSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="politicCountenance != null">
+        politic_countenance = #{politicCountenance,jdbcType=VARCHAR},
+      </if>
+      <if test="politicCountenanceValues != null">
+        politic_countenance_values = #{politicCountenanceValues,jdbcType=VARCHAR},
+      </if>
+      <if test="studentStatus != null">
+        student_status = #{studentStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="studentStatusValues != null">
+        student_status_values = #{studentStatusValues,jdbcType=VARCHAR},
+      </if>
+      <if test="stuPhotoUrl != null">
+        stu_photo_url = #{stuPhotoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="stuGrade != null">
+        stu_grade = #{stuGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="stuGradeValues != null">
+        stu_grade_values = #{stuGradeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="mailBox != null">
+        mail_box = #{mailBox,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatNumber != null">
+        wechat_number = #{wechatNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="familyAddress != null">
+        family_address = #{familyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="informationStatus != null">
+        information_status = #{informationStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="informationStatusValues != null">
+        information_status_values = #{informationStatusValues,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remarkExtend != null">
+        remark_extend = #{remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.deao.dal.daomain.auto.EduMemberModel">
+    update edu_member
+    set user_id = #{userId,jdbcType=VARCHAR},
+      open_id = #{openId,jdbcType=VARCHAR},
+      stu_name = #{stuName,jdbcType=VARCHAR},
+      stu_name_letter = #{stuNameLetter,jdbcType=VARCHAR},
+      stu_phone = #{stuPhone,jdbcType=VARCHAR},
+      stu_id = #{stuId,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      nation = #{nation,jdbcType=VARCHAR},
+      id_number = #{idNumber,jdbcType=VARCHAR},
+      birthday_type = #{birthdayType,jdbcType=VARCHAR},
+      birthday_type_values = #{birthdayTypeValues,jdbcType=VARCHAR},
+      stu_birthday = #{stuBirthday,jdbcType=VARCHAR},
+      stu_faculty = #{stuFaculty,jdbcType=VARCHAR},
+      stu_faculty_values = #{stuFacultyValues,jdbcType=VARCHAR},
+      stu_profession = #{stuProfession,jdbcType=VARCHAR},
+      stu_profession_values = #{stuProfessionValues,jdbcType=VARCHAR},
+      stu_class = #{stuClass,jdbcType=VARCHAR},
+      urgent_name = #{urgentName,jdbcType=VARCHAR},
+      urgent_phone = #{urgentPhone,jdbcType=VARCHAR},
+      stu_status = #{stuStatus,jdbcType=VARCHAR},
+      stu_status_values = #{stuStatusValues,jdbcType=VARCHAR},
+      member_role = #{memberRole,jdbcType=VARCHAR},
+      member_role_values = #{memberRoleValues,jdbcType=VARCHAR},
+      login_number = #{loginNumber,jdbcType=INTEGER},
+      last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      school_system = #{schoolSystem,jdbcType=VARCHAR},
+      politic_countenance = #{politicCountenance,jdbcType=VARCHAR},
+      politic_countenance_values = #{politicCountenanceValues,jdbcType=VARCHAR},
+      student_status = #{studentStatus,jdbcType=VARCHAR},
+      student_status_values = #{studentStatusValues,jdbcType=VARCHAR},
+      stu_photo_url = #{stuPhotoUrl,jdbcType=VARCHAR},
+      stu_grade = #{stuGrade,jdbcType=VARCHAR},
+      stu_grade_values = #{stuGradeValues,jdbcType=VARCHAR},
+      mail_box = #{mailBox,jdbcType=VARCHAR},
+      wechat_number = #{wechatNumber,jdbcType=VARCHAR},
+      family_address = #{familyAddress,jdbcType=VARCHAR},
+      information_status = #{informationStatus,jdbcType=VARCHAR},
+      information_status_values = #{informationStatusValues,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      remark_extend = #{remarkExtend,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.deao.dal.daomain.auto.EduMemberModel">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="stu_name" jdbcType="VARCHAR" property="stuName" />
+    <result column="stu_name_letter" jdbcType="VARCHAR" property="stuNameLetter" />
+    <result column="stu_phone" jdbcType="VARCHAR" property="stuPhone" />
+    <result column="stu_id" jdbcType="VARCHAR" property="stuId" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="nation" jdbcType="VARCHAR" property="nation" />
+    <result column="id_number" jdbcType="VARCHAR" property="idNumber" />
+    <result column="birthday_type" jdbcType="VARCHAR" property="birthdayType" />
+    <result column="birthday_type_values" jdbcType="VARCHAR" property="birthdayTypeValues" />
+    <result column="stu_birthday" jdbcType="VARCHAR" property="stuBirthday" />
+    <result column="stu_faculty" jdbcType="VARCHAR" property="stuFaculty" />
+    <result column="stu_profession" jdbcType="VARCHAR" property="stuProfession" />
+    <result column="stu_class" jdbcType="VARCHAR" property="stuClass" />
+    <result column="urgent_name" jdbcType="VARCHAR" property="urgentName" />
+    <result column="urgent_phone" jdbcType="VARCHAR" property="urgentPhone" />
+    <result column="stu_status" jdbcType="VARCHAR" property="stuStatus" />
+    <result column="stu_status_values" jdbcType="VARCHAR" property="stuStatusValues" />
+    <result column="member_role" jdbcType="VARCHAR" property="memberRole" />
+    <result column="member_role_values" jdbcType="VARCHAR" property="memberRoleValues" />
+    <result column="login_number" jdbcType="INTEGER" property="loginNumber" />
+    <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <result column="school_system" jdbcType="VARCHAR" property="schoolSystem" />
+    <result column="politic_countenance" jdbcType="VARCHAR" property="politicCountenance" />
+    <result column="politic_countenance_values" jdbcType="VARCHAR" property="politicCountenanceValues" />
+    <result column="student_status" jdbcType="VARCHAR" property="studentStatus" />
+    <result column="student_status_values" jdbcType="VARCHAR" property="studentStatusValues" />
+    <result column="stu_photo_url" jdbcType="VARCHAR" property="stuPhotoUrl" />
+    <result column="stu_grade" jdbcType="VARCHAR" property="stuGrade" />
+    <result column="mail_box" jdbcType="VARCHAR" property="mailBox" />
+    <result column="wechat number" jdbcType="VARCHAR" property="wechatNumber" />
+    <result column="family_address" jdbcType="VARCHAR" property="familyAddress" />
+    <result column="information_status" jdbcType="VARCHAR" property="informationStatus" />
+    <result column="information_status_values" jdbcType="VARCHAR" property="informationStatusValues" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="remark_extend" jdbcType="VARCHAR" property="remarkExtend" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, user_id, open_id, stu_name, stu_name_letter, stu_phone, stu_id, sex, nation, 
+    id_number, birthday_type, birthday_type_values, stu_birthday, stu_faculty, stu_profession, 
+    stu_class, urgent_name, urgent_phone, stu_status, stu_status_values, member_role, 
+    member_role_values, login_number, last_login_time, school_system, politic_countenance, 
+    politic_countenance_values, student_status, student_status_values, stu_photo_url, 
+    stu_grade, mail_box, "wechat number", family_address, information_status, information_status_values, 
+    remark, remark_extend, create_time, update_time, is_delete
+  </sql>
+  <select id="selectByExample" parameterType="com.deao.dal.daomain.auto.EduMemberModelExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from edu_member
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from edu_member
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from edu_member
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.deao.dal.daomain.auto.EduMemberModelExample">
+    delete from edu_member
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.deao.dal.daomain.auto.EduMemberModel">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into edu_member (user_id, open_id, stu_name, 
+      stu_name_letter, stu_phone, stu_id, 
+      sex, nation, id_number, 
+      birthday_type, birthday_type_values, stu_birthday, 
+      stu_faculty, stu_profession, stu_class, 
+      urgent_name, urgent_phone, stu_status, 
+      stu_status_values, member_role, member_role_values, 
+      login_number, last_login_time, school_system, 
+      politic_countenance, politic_countenance_values, 
+      student_status, student_status_values, stu_photo_url, 
+      stu_grade, mail_box, "wechat number", 
+      family_address, information_status, information_status_values, 
+      remark, remark_extend, create_time, 
+      update_time, is_delete)
+    values (#{userId,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, #{stuName,jdbcType=VARCHAR}, 
+      #{stuNameLetter,jdbcType=VARCHAR}, #{stuPhone,jdbcType=VARCHAR}, #{stuId,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, #{idNumber,jdbcType=VARCHAR}, 
+      #{birthdayType,jdbcType=VARCHAR}, #{birthdayTypeValues,jdbcType=VARCHAR}, #{stuBirthday,jdbcType=VARCHAR}, 
+      #{stuFaculty,jdbcType=VARCHAR}, #{stuProfession,jdbcType=VARCHAR}, #{stuClass,jdbcType=VARCHAR}, 
+      #{urgentName,jdbcType=VARCHAR}, #{urgentPhone,jdbcType=VARCHAR}, #{stuStatus,jdbcType=VARCHAR}, 
+      #{stuStatusValues,jdbcType=VARCHAR}, #{memberRole,jdbcType=VARCHAR}, #{memberRoleValues,jdbcType=VARCHAR}, 
+      #{loginNumber,jdbcType=INTEGER}, #{lastLoginTime,jdbcType=TIMESTAMP}, #{schoolSystem,jdbcType=VARCHAR}, 
+      #{politicCountenance,jdbcType=VARCHAR}, #{politicCountenanceValues,jdbcType=VARCHAR}, 
+      #{studentStatus,jdbcType=VARCHAR}, #{studentStatusValues,jdbcType=VARCHAR}, #{stuPhotoUrl,jdbcType=VARCHAR}, 
+      #{stuGrade,jdbcType=VARCHAR}, #{mailBox,jdbcType=VARCHAR}, #{wechatNumber,jdbcType=VARCHAR}, 
+      #{familyAddress,jdbcType=VARCHAR}, #{informationStatus,jdbcType=VARCHAR}, #{informationStatusValues,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{remarkExtend,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.deao.dal.daomain.auto.EduMemberModel">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into edu_member
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="openId != null">
+        open_id,
+      </if>
+      <if test="stuName != null">
+        stu_name,
+      </if>
+      <if test="stuNameLetter != null">
+        stu_name_letter,
+      </if>
+      <if test="stuPhone != null">
+        stu_phone,
+      </if>
+      <if test="stuId != null">
+        stu_id,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="nation != null">
+        nation,
+      </if>
+      <if test="idNumber != null">
+        id_number,
+      </if>
+      <if test="birthdayType != null">
+        birthday_type,
+      </if>
+      <if test="birthdayTypeValues != null">
+        birthday_type_values,
+      </if>
+      <if test="stuBirthday != null">
+        stu_birthday,
+      </if>
+      <if test="stuFaculty != null">
+        stu_faculty,
+      </if>
+      <if test="stuProfession != null">
+        stu_profession,
+      </if>
+      <if test="stuClass != null">
+        stu_class,
+      </if>
+      <if test="urgentName != null">
+        urgent_name,
+      </if>
+      <if test="urgentPhone != null">
+        urgent_phone,
+      </if>
+      <if test="stuStatus != null">
+        stu_status,
+      </if>
+      <if test="stuStatusValues != null">
+        stu_status_values,
+      </if>
+      <if test="memberRole != null">
+        member_role,
+      </if>
+      <if test="memberRoleValues != null">
+        member_role_values,
+      </if>
+      <if test="loginNumber != null">
+        login_number,
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time,
+      </if>
+      <if test="schoolSystem != null">
+        school_system,
+      </if>
+      <if test="politicCountenance != null">
+        politic_countenance,
+      </if>
+      <if test="politicCountenanceValues != null">
+        politic_countenance_values,
+      </if>
+      <if test="studentStatus != null">
+        student_status,
+      </if>
+      <if test="studentStatusValues != null">
+        student_status_values,
+      </if>
+      <if test="stuPhotoUrl != null">
+        stu_photo_url,
+      </if>
+      <if test="stuGrade != null">
+        stu_grade,
+      </if>
+      <if test="mailBox != null">
+        mail_box,
+      </if>
+      <if test="wechatNumber != null">
+        "wechat number",
+      </if>
+      <if test="familyAddress != null">
+        family_address,
+      </if>
+      <if test="informationStatus != null">
+        information_status,
+      </if>
+      <if test="informationStatusValues != null">
+        information_status_values,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="remarkExtend != null">
+        remark_extend,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="stuName != null">
+        #{stuName,jdbcType=VARCHAR},
+      </if>
+      <if test="stuNameLetter != null">
+        #{stuNameLetter,jdbcType=VARCHAR},
+      </if>
+      <if test="stuPhone != null">
+        #{stuPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="stuId != null">
+        #{stuId,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null">
+        #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdayType != null">
+        #{birthdayType,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdayTypeValues != null">
+        #{birthdayTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="stuBirthday != null">
+        #{stuBirthday,jdbcType=VARCHAR},
+      </if>
+      <if test="stuFaculty != null">
+        #{stuFaculty,jdbcType=VARCHAR},
+      </if>
+      <if test="stuProfession != null">
+        #{stuProfession,jdbcType=VARCHAR},
+      </if>
+      <if test="stuClass != null">
+        #{stuClass,jdbcType=VARCHAR},
+      </if>
+      <if test="urgentName != null">
+        #{urgentName,jdbcType=VARCHAR},
+      </if>
+      <if test="urgentPhone != null">
+        #{urgentPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="stuStatus != null">
+        #{stuStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="stuStatusValues != null">
+        #{stuStatusValues,jdbcType=VARCHAR},
+      </if>
+      <if test="memberRole != null">
+        #{memberRole,jdbcType=VARCHAR},
+      </if>
+      <if test="memberRoleValues != null">
+        #{memberRoleValues,jdbcType=VARCHAR},
+      </if>
+      <if test="loginNumber != null">
+        #{loginNumber,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginTime != null">
+        #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="schoolSystem != null">
+        #{schoolSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="politicCountenance != null">
+        #{politicCountenance,jdbcType=VARCHAR},
+      </if>
+      <if test="politicCountenanceValues != null">
+        #{politicCountenanceValues,jdbcType=VARCHAR},
+      </if>
+      <if test="studentStatus != null">
+        #{studentStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="studentStatusValues != null">
+        #{studentStatusValues,jdbcType=VARCHAR},
+      </if>
+      <if test="stuPhotoUrl != null">
+        #{stuPhotoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="stuGrade != null">
+        #{stuGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="mailBox != null">
+        #{mailBox,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatNumber != null">
+        #{wechatNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="familyAddress != null">
+        #{familyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="informationStatus != null">
+        #{informationStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="informationStatusValues != null">
+        #{informationStatusValues,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remarkExtend != null">
+        #{remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.deao.dal.daomain.auto.EduMemberModelExample" resultType="java.lang.Integer">
+    select count(*) from edu_member
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update edu_member
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.openId != null">
+        open_id = #{record.openId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuName != null">
+        stu_name = #{record.stuName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuNameLetter != null">
+        stu_name_letter = #{record.stuNameLetter,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuPhone != null">
+        stu_phone = #{record.stuPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuId != null">
+        stu_id = #{record.stuId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null">
+        sex = #{record.sex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nation != null">
+        nation = #{record.nation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idNumber != null">
+        id_number = #{record.idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthdayType != null">
+        birthday_type = #{record.birthdayType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthdayTypeValues != null">
+        birthday_type_values = #{record.birthdayTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuBirthday != null">
+        stu_birthday = #{record.stuBirthday,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuFaculty != null">
+        stu_faculty = #{record.stuFaculty,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuProfession != null">
+        stu_profession = #{record.stuProfession,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuClass != null">
+        stu_class = #{record.stuClass,jdbcType=VARCHAR},
+      </if>
+      <if test="record.urgentName != null">
+        urgent_name = #{record.urgentName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.urgentPhone != null">
+        urgent_phone = #{record.urgentPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuStatus != null">
+        stu_status = #{record.stuStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuStatusValues != null">
+        stu_status_values = #{record.stuStatusValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memberRole != null">
+        member_role = #{record.memberRole,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memberRoleValues != null">
+        member_role_values = #{record.memberRoleValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loginNumber != null">
+        login_number = #{record.loginNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.lastLoginTime != null">
+        last_login_time = #{record.lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.schoolSystem != null">
+        school_system = #{record.schoolSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="record.politicCountenance != null">
+        politic_countenance = #{record.politicCountenance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.politicCountenanceValues != null">
+        politic_countenance_values = #{record.politicCountenanceValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.studentStatus != null">
+        student_status = #{record.studentStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.studentStatusValues != null">
+        student_status_values = #{record.studentStatusValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuPhotoUrl != null">
+        stu_photo_url = #{record.stuPhotoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuGrade != null">
+        stu_grade = #{record.stuGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mailBox != null">
+        mail_box = #{record.mailBox,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wechatNumber != null">
+        "wechat number" = #{record.wechatNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.familyAddress != null">
+        family_address = #{record.familyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.informationStatus != null">
+        information_status = #{record.informationStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.informationStatusValues != null">
+        information_status_values = #{record.informationStatusValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remarkExtend != null">
+        remark_extend = #{record.remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isDelete != null">
+        is_delete = #{record.isDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update edu_member
+    set id = #{record.id,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      open_id = #{record.openId,jdbcType=VARCHAR},
+      stu_name = #{record.stuName,jdbcType=VARCHAR},
+      stu_name_letter = #{record.stuNameLetter,jdbcType=VARCHAR},
+      stu_phone = #{record.stuPhone,jdbcType=VARCHAR},
+      stu_id = #{record.stuId,jdbcType=VARCHAR},
+      sex = #{record.sex,jdbcType=VARCHAR},
+      nation = #{record.nation,jdbcType=VARCHAR},
+      id_number = #{record.idNumber,jdbcType=VARCHAR},
+      birthday_type = #{record.birthdayType,jdbcType=VARCHAR},
+      birthday_type_values = #{record.birthdayTypeValues,jdbcType=VARCHAR},
+      stu_birthday = #{record.stuBirthday,jdbcType=VARCHAR},
+      stu_faculty = #{record.stuFaculty,jdbcType=VARCHAR},
+      stu_profession = #{record.stuProfession,jdbcType=VARCHAR},
+      stu_class = #{record.stuClass,jdbcType=VARCHAR},
+      urgent_name = #{record.urgentName,jdbcType=VARCHAR},
+      urgent_phone = #{record.urgentPhone,jdbcType=VARCHAR},
+      stu_status = #{record.stuStatus,jdbcType=VARCHAR},
+      stu_status_values = #{record.stuStatusValues,jdbcType=VARCHAR},
+      member_role = #{record.memberRole,jdbcType=VARCHAR},
+      member_role_values = #{record.memberRoleValues,jdbcType=VARCHAR},
+      login_number = #{record.loginNumber,jdbcType=INTEGER},
+      last_login_time = #{record.lastLoginTime,jdbcType=TIMESTAMP},
+      school_system = #{record.schoolSystem,jdbcType=VARCHAR},
+      politic_countenance = #{record.politicCountenance,jdbcType=VARCHAR},
+      politic_countenance_values = #{record.politicCountenanceValues,jdbcType=VARCHAR},
+      student_status = #{record.studentStatus,jdbcType=VARCHAR},
+      student_status_values = #{record.studentStatusValues,jdbcType=VARCHAR},
+      stu_photo_url = #{record.stuPhotoUrl,jdbcType=VARCHAR},
+      stu_grade = #{record.stuGrade,jdbcType=VARCHAR},
+      mail_box = #{record.mailBox,jdbcType=VARCHAR},
+      "wechat number" = #{record.wechatNumber,jdbcType=VARCHAR},
+      family_address = #{record.familyAddress,jdbcType=VARCHAR},
+      information_status = #{record.informationStatus,jdbcType=VARCHAR},
+      information_status_values = #{record.informationStatusValues,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      remark_extend = #{record.remarkExtend,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{record.isDelete,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.deao.dal.daomain.auto.EduMemberModel">
+    update edu_member
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="stuName != null">
+        stu_name = #{stuName,jdbcType=VARCHAR},
+      </if>
+      <if test="stuNameLetter != null">
+        stu_name_letter = #{stuNameLetter,jdbcType=VARCHAR},
+      </if>
+      <if test="stuPhone != null">
+        stu_phone = #{stuPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="stuId != null">
+        stu_id = #{stuId,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null">
+        id_number = #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdayType != null">
+        birthday_type = #{birthdayType,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdayTypeValues != null">
+        birthday_type_values = #{birthdayTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="stuBirthday != null">
+        stu_birthday = #{stuBirthday,jdbcType=VARCHAR},
+      </if>
+      <if test="stuFaculty != null">
+        stu_faculty = #{stuFaculty,jdbcType=VARCHAR},
+      </if>
+      <if test="stuProfession != null">
+        stu_profession = #{stuProfession,jdbcType=VARCHAR},
+      </if>
+      <if test="stuClass != null">
+        stu_class = #{stuClass,jdbcType=VARCHAR},
+      </if>
+      <if test="urgentName != null">
+        urgent_name = #{urgentName,jdbcType=VARCHAR},
+      </if>
+      <if test="urgentPhone != null">
+        urgent_phone = #{urgentPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="stuStatus != null">
+        stu_status = #{stuStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="stuStatusValues != null">
+        stu_status_values = #{stuStatusValues,jdbcType=VARCHAR},
+      </if>
+      <if test="memberRole != null">
+        member_role = #{memberRole,jdbcType=VARCHAR},
+      </if>
+      <if test="memberRoleValues != null">
+        member_role_values = #{memberRoleValues,jdbcType=VARCHAR},
+      </if>
+      <if test="loginNumber != null">
+        login_number = #{loginNumber,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="schoolSystem != null">
+        school_system = #{schoolSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="politicCountenance != null">
+        politic_countenance = #{politicCountenance,jdbcType=VARCHAR},
+      </if>
+      <if test="politicCountenanceValues != null">
+        politic_countenance_values = #{politicCountenanceValues,jdbcType=VARCHAR},
+      </if>
+      <if test="studentStatus != null">
+        student_status = #{studentStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="studentStatusValues != null">
+        student_status_values = #{studentStatusValues,jdbcType=VARCHAR},
+      </if>
+      <if test="stuPhotoUrl != null">
+        stu_photo_url = #{stuPhotoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="stuGrade != null">
+        stu_grade = #{stuGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="mailBox != null">
+        mail_box = #{mailBox,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatNumber != null">
+        "wechat number" = #{wechatNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="familyAddress != null">
+        family_address = #{familyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="informationStatus != null">
+        information_status = #{informationStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="informationStatusValues != null">
+        information_status_values = #{informationStatusValues,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remarkExtend != null">
+        remark_extend = #{remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.deao.dal.daomain.auto.EduMemberModel">
+    update edu_member
+    set user_id = #{userId,jdbcType=VARCHAR},
+      open_id = #{openId,jdbcType=VARCHAR},
+      stu_name = #{stuName,jdbcType=VARCHAR},
+      stu_name_letter = #{stuNameLetter,jdbcType=VARCHAR},
+      stu_phone = #{stuPhone,jdbcType=VARCHAR},
+      stu_id = #{stuId,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      nation = #{nation,jdbcType=VARCHAR},
+      id_number = #{idNumber,jdbcType=VARCHAR},
+      birthday_type = #{birthdayType,jdbcType=VARCHAR},
+      birthday_type_values = #{birthdayTypeValues,jdbcType=VARCHAR},
+      stu_birthday = #{stuBirthday,jdbcType=VARCHAR},
+      stu_faculty = #{stuFaculty,jdbcType=VARCHAR},
+      stu_profession = #{stuProfession,jdbcType=VARCHAR},
+      stu_class = #{stuClass,jdbcType=VARCHAR},
+      urgent_name = #{urgentName,jdbcType=VARCHAR},
+      urgent_phone = #{urgentPhone,jdbcType=VARCHAR},
+      stu_status = #{stuStatus,jdbcType=VARCHAR},
+      stu_status_values = #{stuStatusValues,jdbcType=VARCHAR},
+      member_role = #{memberRole,jdbcType=VARCHAR},
+      member_role_values = #{memberRoleValues,jdbcType=VARCHAR},
+      login_number = #{loginNumber,jdbcType=INTEGER},
+      last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      school_system = #{schoolSystem,jdbcType=VARCHAR},
+      politic_countenance = #{politicCountenance,jdbcType=VARCHAR},
+      politic_countenance_values = #{politicCountenanceValues,jdbcType=VARCHAR},
+      student_status = #{studentStatus,jdbcType=VARCHAR},
+      student_status_values = #{studentStatusValues,jdbcType=VARCHAR},
+      stu_photo_url = #{stuPhotoUrl,jdbcType=VARCHAR},
+      stu_grade = #{stuGrade,jdbcType=VARCHAR},
+      mail_box = #{mailBox,jdbcType=VARCHAR},
+      "wechat number" = #{wechatNumber,jdbcType=VARCHAR},
+      family_address = #{familyAddress,jdbcType=VARCHAR},
+      information_status = #{informationStatus,jdbcType=VARCHAR},
+      information_status_values = #{informationStatusValues,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      remark_extend = #{remarkExtend,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.deao.dal.daomain.auto.EduMemberModel">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="stu_name" jdbcType="VARCHAR" property="stuName" />
+    <result column="stu_name_letter" jdbcType="VARCHAR" property="stuNameLetter" />
+    <result column="stu_phone" jdbcType="VARCHAR" property="stuPhone" />
+    <result column="stu_id" jdbcType="VARCHAR" property="stuId" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="nation" jdbcType="VARCHAR" property="nation" />
+    <result column="id_number" jdbcType="VARCHAR" property="idNumber" />
+    <result column="birthday_type" jdbcType="VARCHAR" property="birthdayType" />
+    <result column="birthday_type_values" jdbcType="VARCHAR" property="birthdayTypeValues" />
+    <result column="stu_birthday" jdbcType="VARCHAR" property="stuBirthday" />
+    <result column="stu_faculty" jdbcType="VARCHAR" property="stuFaculty" />
+    <result column="stu_profession" jdbcType="VARCHAR" property="stuProfession" />
+    <result column="stu_class" jdbcType="VARCHAR" property="stuClass" />
+    <result column="urgent_name" jdbcType="VARCHAR" property="urgentName" />
+    <result column="urgent_phone" jdbcType="VARCHAR" property="urgentPhone" />
+    <result column="stu_status" jdbcType="VARCHAR" property="stuStatus" />
+    <result column="stu_status_values" jdbcType="VARCHAR" property="stuStatusValues" />
+    <result column="member_role" jdbcType="VARCHAR" property="memberRole" />
+    <result column="member_role_values" jdbcType="VARCHAR" property="memberRoleValues" />
+    <result column="login_number" jdbcType="INTEGER" property="loginNumber" />
+    <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="remark_extend" jdbcType="VARCHAR" property="remarkExtend" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, user_id, open_id, stu_name, stu_name_letter, stu_phone, stu_id, sex, nation, 
+    id_number, birthday_type, birthday_type_values, stu_birthday, stu_faculty, stu_profession, 
+    stu_class, urgent_name, urgent_phone, stu_status, stu_status_values, member_role, 
+    member_role_values, login_number, last_login_time, remark, remark_extend, create_time, 
+    update_time, is_delete
+  </sql>
+  <select id="selectByExample" parameterType="com.deao.dal.daomain.auto.EduMemberModelExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from edu_member
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from edu_member
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from edu_member
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.deao.dal.daomain.auto.EduMemberModelExample">
+    delete from edu_member
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.deao.dal.daomain.auto.EduMemberModel">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into edu_member (user_id, open_id, stu_name, 
+      stu_name_letter, stu_phone, stu_id, 
+      sex, nation, id_number, 
+      birthday_type, birthday_type_values, stu_birthday, 
+      stu_faculty, stu_profession, stu_class, 
+      urgent_name, urgent_phone, stu_status, 
+      stu_status_values, member_role, member_role_values, 
+      login_number, last_login_time, remark, 
+      remark_extend, create_time, update_time, 
+      is_delete)
+    values (#{userId,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, #{stuName,jdbcType=VARCHAR}, 
+      #{stuNameLetter,jdbcType=VARCHAR}, #{stuPhone,jdbcType=VARCHAR}, #{stuId,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, #{idNumber,jdbcType=VARCHAR}, 
+      #{birthdayType,jdbcType=VARCHAR}, #{birthdayTypeValues,jdbcType=VARCHAR}, #{stuBirthday,jdbcType=VARCHAR}, 
+      #{stuFaculty,jdbcType=VARCHAR}, #{stuProfession,jdbcType=VARCHAR}, #{stuClass,jdbcType=VARCHAR}, 
+      #{urgentName,jdbcType=VARCHAR}, #{urgentPhone,jdbcType=VARCHAR}, #{stuStatus,jdbcType=VARCHAR}, 
+      #{stuStatusValues,jdbcType=VARCHAR}, #{memberRole,jdbcType=VARCHAR}, #{memberRoleValues,jdbcType=VARCHAR}, 
+      #{loginNumber,jdbcType=INTEGER}, #{lastLoginTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
+      #{remarkExtend,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isDelete,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.deao.dal.daomain.auto.EduMemberModel">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into edu_member
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="openId != null">
+        open_id,
+      </if>
+      <if test="stuName != null">
+        stu_name,
+      </if>
+      <if test="stuNameLetter != null">
+        stu_name_letter,
+      </if>
+      <if test="stuPhone != null">
+        stu_phone,
+      </if>
+      <if test="stuId != null">
+        stu_id,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="nation != null">
+        nation,
+      </if>
+      <if test="idNumber != null">
+        id_number,
+      </if>
+      <if test="birthdayType != null">
+        birthday_type,
+      </if>
+      <if test="birthdayTypeValues != null">
+        birthday_type_values,
+      </if>
+      <if test="stuBirthday != null">
+        stu_birthday,
+      </if>
+      <if test="stuFaculty != null">
+        stu_faculty,
+      </if>
+      <if test="stuProfession != null">
+        stu_profession,
+      </if>
+      <if test="stuClass != null">
+        stu_class,
+      </if>
+      <if test="urgentName != null">
+        urgent_name,
+      </if>
+      <if test="urgentPhone != null">
+        urgent_phone,
+      </if>
+      <if test="stuStatus != null">
+        stu_status,
+      </if>
+      <if test="stuStatusValues != null">
+        stu_status_values,
+      </if>
+      <if test="memberRole != null">
+        member_role,
+      </if>
+      <if test="memberRoleValues != null">
+        member_role_values,
+      </if>
+      <if test="loginNumber != null">
+        login_number,
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="remarkExtend != null">
+        remark_extend,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="stuName != null">
+        #{stuName,jdbcType=VARCHAR},
+      </if>
+      <if test="stuNameLetter != null">
+        #{stuNameLetter,jdbcType=VARCHAR},
+      </if>
+      <if test="stuPhone != null">
+        #{stuPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="stuId != null">
+        #{stuId,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null">
+        #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdayType != null">
+        #{birthdayType,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdayTypeValues != null">
+        #{birthdayTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="stuBirthday != null">
+        #{stuBirthday,jdbcType=VARCHAR},
+      </if>
+      <if test="stuFaculty != null">
+        #{stuFaculty,jdbcType=VARCHAR},
+      </if>
+      <if test="stuProfession != null">
+        #{stuProfession,jdbcType=VARCHAR},
+      </if>
+      <if test="stuClass != null">
+        #{stuClass,jdbcType=VARCHAR},
+      </if>
+      <if test="urgentName != null">
+        #{urgentName,jdbcType=VARCHAR},
+      </if>
+      <if test="urgentPhone != null">
+        #{urgentPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="stuStatus != null">
+        #{stuStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="stuStatusValues != null">
+        #{stuStatusValues,jdbcType=VARCHAR},
+      </if>
+      <if test="memberRole != null">
+        #{memberRole,jdbcType=VARCHAR},
+      </if>
+      <if test="memberRoleValues != null">
+        #{memberRoleValues,jdbcType=VARCHAR},
+      </if>
+      <if test="loginNumber != null">
+        #{loginNumber,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginTime != null">
+        #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remarkExtend != null">
+        #{remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.deao.dal.daomain.auto.EduMemberModelExample" resultType="java.lang.Integer">
+    select count(*) from edu_member
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update edu_member
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.openId != null">
+        open_id = #{record.openId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuName != null">
+        stu_name = #{record.stuName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuNameLetter != null">
+        stu_name_letter = #{record.stuNameLetter,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuPhone != null">
+        stu_phone = #{record.stuPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuId != null">
+        stu_id = #{record.stuId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null">
+        sex = #{record.sex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nation != null">
+        nation = #{record.nation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idNumber != null">
+        id_number = #{record.idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthdayType != null">
+        birthday_type = #{record.birthdayType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthdayTypeValues != null">
+        birthday_type_values = #{record.birthdayTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuBirthday != null">
+        stu_birthday = #{record.stuBirthday,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuFaculty != null">
+        stu_faculty = #{record.stuFaculty,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuProfession != null">
+        stu_profession = #{record.stuProfession,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuClass != null">
+        stu_class = #{record.stuClass,jdbcType=VARCHAR},
+      </if>
+      <if test="record.urgentName != null">
+        urgent_name = #{record.urgentName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.urgentPhone != null">
+        urgent_phone = #{record.urgentPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuStatus != null">
+        stu_status = #{record.stuStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuStatusValues != null">
+        stu_status_values = #{record.stuStatusValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memberRole != null">
+        member_role = #{record.memberRole,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memberRoleValues != null">
+        member_role_values = #{record.memberRoleValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loginNumber != null">
+        login_number = #{record.loginNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.lastLoginTime != null">
+        last_login_time = #{record.lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remarkExtend != null">
+        remark_extend = #{record.remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isDelete != null">
+        is_delete = #{record.isDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update edu_member
+    set id = #{record.id,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      open_id = #{record.openId,jdbcType=VARCHAR},
+      stu_name = #{record.stuName,jdbcType=VARCHAR},
+      stu_name_letter = #{record.stuNameLetter,jdbcType=VARCHAR},
+      stu_phone = #{record.stuPhone,jdbcType=VARCHAR},
+      stu_id = #{record.stuId,jdbcType=VARCHAR},
+      sex = #{record.sex,jdbcType=VARCHAR},
+      nation = #{record.nation,jdbcType=VARCHAR},
+      id_number = #{record.idNumber,jdbcType=VARCHAR},
+      birthday_type = #{record.birthdayType,jdbcType=VARCHAR},
+      birthday_type_values = #{record.birthdayTypeValues,jdbcType=VARCHAR},
+      stu_birthday = #{record.stuBirthday,jdbcType=VARCHAR},
+      stu_faculty = #{record.stuFaculty,jdbcType=VARCHAR},
+      stu_profession = #{record.stuProfession,jdbcType=VARCHAR},
+      stu_class = #{record.stuClass,jdbcType=VARCHAR},
+      urgent_name = #{record.urgentName,jdbcType=VARCHAR},
+      urgent_phone = #{record.urgentPhone,jdbcType=VARCHAR},
+      stu_status = #{record.stuStatus,jdbcType=VARCHAR},
+      stu_status_values = #{record.stuStatusValues,jdbcType=VARCHAR},
+      member_role = #{record.memberRole,jdbcType=VARCHAR},
+      member_role_values = #{record.memberRoleValues,jdbcType=VARCHAR},
+      login_number = #{record.loginNumber,jdbcType=INTEGER},
+      last_login_time = #{record.lastLoginTime,jdbcType=TIMESTAMP},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      remark_extend = #{record.remarkExtend,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{record.isDelete,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.deao.dal.daomain.auto.EduMemberModel">
+    update edu_member
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="stuName != null">
+        stu_name = #{stuName,jdbcType=VARCHAR},
+      </if>
+      <if test="stuNameLetter != null">
+        stu_name_letter = #{stuNameLetter,jdbcType=VARCHAR},
+      </if>
+      <if test="stuPhone != null">
+        stu_phone = #{stuPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="stuId != null">
+        stu_id = #{stuId,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null">
+        id_number = #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdayType != null">
+        birthday_type = #{birthdayType,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdayTypeValues != null">
+        birthday_type_values = #{birthdayTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="stuBirthday != null">
+        stu_birthday = #{stuBirthday,jdbcType=VARCHAR},
+      </if>
+      <if test="stuFaculty != null">
+        stu_faculty = #{stuFaculty,jdbcType=VARCHAR},
+      </if>
+      <if test="stuProfession != null">
+        stu_profession = #{stuProfession,jdbcType=VARCHAR},
+      </if>
+      <if test="stuClass != null">
+        stu_class = #{stuClass,jdbcType=VARCHAR},
+      </if>
+      <if test="urgentName != null">
+        urgent_name = #{urgentName,jdbcType=VARCHAR},
+      </if>
+      <if test="urgentPhone != null">
+        urgent_phone = #{urgentPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="stuStatus != null">
+        stu_status = #{stuStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="stuStatusValues != null">
+        stu_status_values = #{stuStatusValues,jdbcType=VARCHAR},
+      </if>
+      <if test="memberRole != null">
+        member_role = #{memberRole,jdbcType=VARCHAR},
+      </if>
+      <if test="memberRoleValues != null">
+        member_role_values = #{memberRoleValues,jdbcType=VARCHAR},
+      </if>
+      <if test="loginNumber != null">
+        login_number = #{loginNumber,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remarkExtend != null">
+        remark_extend = #{remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.deao.dal.daomain.auto.EduMemberModel">
+    update edu_member
+    set user_id = #{userId,jdbcType=VARCHAR},
+      open_id = #{openId,jdbcType=VARCHAR},
+      stu_name = #{stuName,jdbcType=VARCHAR},
+      stu_name_letter = #{stuNameLetter,jdbcType=VARCHAR},
+      stu_phone = #{stuPhone,jdbcType=VARCHAR},
+      stu_id = #{stuId,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      nation = #{nation,jdbcType=VARCHAR},
+      id_number = #{idNumber,jdbcType=VARCHAR},
+      birthday_type = #{birthdayType,jdbcType=VARCHAR},
+      birthday_type_values = #{birthdayTypeValues,jdbcType=VARCHAR},
+      stu_birthday = #{stuBirthday,jdbcType=VARCHAR},
+      stu_faculty = #{stuFaculty,jdbcType=VARCHAR},
+      stu_profession = #{stuProfession,jdbcType=VARCHAR},
+      stu_class = #{stuClass,jdbcType=VARCHAR},
+      urgent_name = #{urgentName,jdbcType=VARCHAR},
+      urgent_phone = #{urgentPhone,jdbcType=VARCHAR},
+      stu_status = #{stuStatus,jdbcType=VARCHAR},
+      stu_status_values = #{stuStatusValues,jdbcType=VARCHAR},
+      member_role = #{memberRole,jdbcType=VARCHAR},
+      member_role_values = #{memberRoleValues,jdbcType=VARCHAR},
+      login_number = #{loginNumber,jdbcType=INTEGER},
+      last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      remark_extend = #{remarkExtend,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

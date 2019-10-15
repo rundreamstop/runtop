@@ -1,0 +1,1054 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.deao.dal.dao.auto.AccountRecordModelMapper">
+  <resultMap id="BaseResultMap" type="com.deao.dal.daomain.auto.AccountRecordModel">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="record_type" jdbcType="VARCHAR" property="recordType" />
+    <result column="record_type_values" jdbcType="VARCHAR" property="recordTypeValues" />
+    <result column="business_type" jdbcType="VARCHAR" property="businessType" />
+    <result column="business_type_values" jdbcType="VARCHAR" property="businessTypeValues" />
+    <result column="record_describe" jdbcType="VARCHAR" property="recordDescribe" />
+    <result column="record_time" jdbcType="TIMESTAMP" property="recordTime" />
+    <result column="score_number" jdbcType="INTEGER" property="scoreNumber" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="remark_extend" jdbcType="VARCHAR" property="remarkExtend" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, user_id, record_type, record_type_values, business_type, business_type_values, 
+    record_describe, record_time, score_number, remark, remark_extend, create_time, update_time, 
+    is_delete
+  </sql>
+  <select id="selectByExample" parameterType="com.deao.dal.daomain.auto.AccountRecordModelExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from account_record
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from account_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from account_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.deao.dal.daomain.auto.AccountRecordModelExample">
+    delete from account_record
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.deao.dal.daomain.auto.AccountRecordModel">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into account_record (user_id, record_type, record_type_values, 
+      business_type, business_type_values, record_describe, 
+      record_time, score_number, remark, 
+      remark_extend, create_time, update_time, 
+      is_delete)
+    values (#{userId,jdbcType=VARCHAR}, #{recordType,jdbcType=VARCHAR}, #{recordTypeValues,jdbcType=VARCHAR}, 
+      #{businessType,jdbcType=VARCHAR}, #{businessTypeValues,jdbcType=VARCHAR}, #{recordDescribe,jdbcType=VARCHAR}, 
+      #{recordTime,jdbcType=TIMESTAMP}, #{scoreNumber,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
+      #{remarkExtend,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isDelete,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.deao.dal.daomain.auto.AccountRecordModel">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into account_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="recordType != null">
+        record_type,
+      </if>
+      <if test="recordTypeValues != null">
+        record_type_values,
+      </if>
+      <if test="businessType != null">
+        business_type,
+      </if>
+      <if test="businessTypeValues != null">
+        business_type_values,
+      </if>
+      <if test="recordDescribe != null">
+        record_describe,
+      </if>
+      <if test="recordTime != null">
+        record_time,
+      </if>
+      <if test="scoreNumber != null">
+        score_number,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="remarkExtend != null">
+        remark_extend,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="recordType != null">
+        #{recordType,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTypeValues != null">
+        #{recordTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="businessTypeValues != null">
+        #{businessTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="recordDescribe != null">
+        #{recordDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTime != null">
+        #{recordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scoreNumber != null">
+        #{scoreNumber,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remarkExtend != null">
+        #{remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.deao.dal.daomain.auto.AccountRecordModelExample" resultType="java.lang.Integer">
+    select count(*) from account_record
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update account_record
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordType != null">
+        record_type = #{record.recordType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordTypeValues != null">
+        record_type_values = #{record.recordTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessType != null">
+        business_type = #{record.businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessTypeValues != null">
+        business_type_values = #{record.businessTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordDescribe != null">
+        record_describe = #{record.recordDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordTime != null">
+        record_time = #{record.recordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.scoreNumber != null">
+        score_number = #{record.scoreNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remarkExtend != null">
+        remark_extend = #{record.remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isDelete != null">
+        is_delete = #{record.isDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update account_record
+    set id = #{record.id,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      record_type = #{record.recordType,jdbcType=VARCHAR},
+      record_type_values = #{record.recordTypeValues,jdbcType=VARCHAR},
+      business_type = #{record.businessType,jdbcType=VARCHAR},
+      business_type_values = #{record.businessTypeValues,jdbcType=VARCHAR},
+      record_describe = #{record.recordDescribe,jdbcType=VARCHAR},
+      record_time = #{record.recordTime,jdbcType=TIMESTAMP},
+      score_number = #{record.scoreNumber,jdbcType=INTEGER},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      remark_extend = #{record.remarkExtend,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{record.isDelete,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.deao.dal.daomain.auto.AccountRecordModel">
+    update account_record
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="recordType != null">
+        record_type = #{recordType,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTypeValues != null">
+        record_type_values = #{recordTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        business_type = #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="businessTypeValues != null">
+        business_type_values = #{businessTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="recordDescribe != null">
+        record_describe = #{recordDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTime != null">
+        record_time = #{recordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scoreNumber != null">
+        score_number = #{scoreNumber,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remarkExtend != null">
+        remark_extend = #{remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.deao.dal.daomain.auto.AccountRecordModel">
+    update account_record
+    set user_id = #{userId,jdbcType=VARCHAR},
+      record_type = #{recordType,jdbcType=VARCHAR},
+      record_type_values = #{recordTypeValues,jdbcType=VARCHAR},
+      business_type = #{businessType,jdbcType=VARCHAR},
+      business_type_values = #{businessTypeValues,jdbcType=VARCHAR},
+      record_describe = #{recordDescribe,jdbcType=VARCHAR},
+      record_time = #{recordTime,jdbcType=TIMESTAMP},
+      score_number = #{scoreNumber,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      remark_extend = #{remarkExtend,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.deao.dal.daomain.auto.AccountRecordModel">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="record_type" jdbcType="VARCHAR" property="recordType" />
+    <result column="record_type_values" jdbcType="VARCHAR" property="recordTypeValues" />
+    <result column="business_type" jdbcType="VARCHAR" property="businessType" />
+    <result column="business_type_values" jdbcType="VARCHAR" property="businessTypeValues" />
+    <result column="record_describe" jdbcType="VARCHAR" property="recordDescribe" />
+    <result column="record_time" jdbcType="TIMESTAMP" property="recordTime" />
+    <result column="score_number" jdbcType="INTEGER" property="scoreNumber" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="remark_extend" jdbcType="VARCHAR" property="remarkExtend" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, user_id, record_type, record_type_values, business_type, business_type_values, 
+    record_describe, record_time, score_number, remark, remark_extend, create_time, update_time, 
+    is_delete
+  </sql>
+  <select id="selectByExample" parameterType="com.deao.dal.daomain.auto.AccountRecordModelExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from account_record
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from account_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from account_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.deao.dal.daomain.auto.AccountRecordModelExample">
+    delete from account_record
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.deao.dal.daomain.auto.AccountRecordModel">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into account_record (user_id, record_type, record_type_values, 
+      business_type, business_type_values, record_describe, 
+      record_time, score_number, remark, 
+      remark_extend, create_time, update_time, 
+      is_delete)
+    values (#{userId,jdbcType=VARCHAR}, #{recordType,jdbcType=VARCHAR}, #{recordTypeValues,jdbcType=VARCHAR}, 
+      #{businessType,jdbcType=VARCHAR}, #{businessTypeValues,jdbcType=VARCHAR}, #{recordDescribe,jdbcType=VARCHAR}, 
+      #{recordTime,jdbcType=TIMESTAMP}, #{scoreNumber,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
+      #{remarkExtend,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isDelete,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.deao.dal.daomain.auto.AccountRecordModel">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into account_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="recordType != null">
+        record_type,
+      </if>
+      <if test="recordTypeValues != null">
+        record_type_values,
+      </if>
+      <if test="businessType != null">
+        business_type,
+      </if>
+      <if test="businessTypeValues != null">
+        business_type_values,
+      </if>
+      <if test="recordDescribe != null">
+        record_describe,
+      </if>
+      <if test="recordTime != null">
+        record_time,
+      </if>
+      <if test="scoreNumber != null">
+        score_number,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="remarkExtend != null">
+        remark_extend,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="recordType != null">
+        #{recordType,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTypeValues != null">
+        #{recordTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="businessTypeValues != null">
+        #{businessTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="recordDescribe != null">
+        #{recordDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTime != null">
+        #{recordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scoreNumber != null">
+        #{scoreNumber,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remarkExtend != null">
+        #{remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.deao.dal.daomain.auto.AccountRecordModelExample" resultType="java.lang.Integer">
+    select count(*) from account_record
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update account_record
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordType != null">
+        record_type = #{record.recordType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordTypeValues != null">
+        record_type_values = #{record.recordTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessType != null">
+        business_type = #{record.businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessTypeValues != null">
+        business_type_values = #{record.businessTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordDescribe != null">
+        record_describe = #{record.recordDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordTime != null">
+        record_time = #{record.recordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.scoreNumber != null">
+        score_number = #{record.scoreNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remarkExtend != null">
+        remark_extend = #{record.remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isDelete != null">
+        is_delete = #{record.isDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update account_record
+    set id = #{record.id,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      record_type = #{record.recordType,jdbcType=VARCHAR},
+      record_type_values = #{record.recordTypeValues,jdbcType=VARCHAR},
+      business_type = #{record.businessType,jdbcType=VARCHAR},
+      business_type_values = #{record.businessTypeValues,jdbcType=VARCHAR},
+      record_describe = #{record.recordDescribe,jdbcType=VARCHAR},
+      record_time = #{record.recordTime,jdbcType=TIMESTAMP},
+      score_number = #{record.scoreNumber,jdbcType=INTEGER},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      remark_extend = #{record.remarkExtend,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{record.isDelete,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.deao.dal.daomain.auto.AccountRecordModel">
+    update account_record
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="recordType != null">
+        record_type = #{recordType,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTypeValues != null">
+        record_type_values = #{recordTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        business_type = #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="businessTypeValues != null">
+        business_type_values = #{businessTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="recordDescribe != null">
+        record_describe = #{recordDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTime != null">
+        record_time = #{recordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scoreNumber != null">
+        score_number = #{scoreNumber,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remarkExtend != null">
+        remark_extend = #{remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.deao.dal.daomain.auto.AccountRecordModel">
+    update account_record
+    set user_id = #{userId,jdbcType=VARCHAR},
+      record_type = #{recordType,jdbcType=VARCHAR},
+      record_type_values = #{recordTypeValues,jdbcType=VARCHAR},
+      business_type = #{businessType,jdbcType=VARCHAR},
+      business_type_values = #{businessTypeValues,jdbcType=VARCHAR},
+      record_describe = #{recordDescribe,jdbcType=VARCHAR},
+      record_time = #{recordTime,jdbcType=TIMESTAMP},
+      score_number = #{scoreNumber,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      remark_extend = #{remarkExtend,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.deao.dal.daomain.auto.AccountRecordModel">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="record_type" jdbcType="VARCHAR" property="recordType" />
+    <result column="record_type_values" jdbcType="VARCHAR" property="recordTypeValues" />
+    <result column="business_type" jdbcType="VARCHAR" property="businessType" />
+    <result column="business_type_values" jdbcType="VARCHAR" property="businessTypeValues" />
+    <result column="record_describe" jdbcType="VARCHAR" property="recordDescribe" />
+    <result column="record_time" jdbcType="TIMESTAMP" property="recordTime" />
+    <result column="score_number" jdbcType="INTEGER" property="scoreNumber" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="remark_extend" jdbcType="VARCHAR" property="remarkExtend" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, user_id, record_type, record_type_values, business_type, business_type_values, 
+    record_describe, record_time, score_number, remark, remark_extend, create_time, update_time, 
+    is_delete
+  </sql>
+  <select id="selectByExample" parameterType="com.deao.dal.daomain.auto.AccountRecordModelExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from account_record
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from account_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from account_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.deao.dal.daomain.auto.AccountRecordModelExample">
+    delete from account_record
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.deao.dal.daomain.auto.AccountRecordModel">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into account_record (user_id, record_type, record_type_values, 
+      business_type, business_type_values, record_describe, 
+      record_time, score_number, remark, 
+      remark_extend, create_time, update_time, 
+      is_delete)
+    values (#{userId,jdbcType=VARCHAR}, #{recordType,jdbcType=VARCHAR}, #{recordTypeValues,jdbcType=VARCHAR}, 
+      #{businessType,jdbcType=VARCHAR}, #{businessTypeValues,jdbcType=VARCHAR}, #{recordDescribe,jdbcType=VARCHAR}, 
+      #{recordTime,jdbcType=TIMESTAMP}, #{scoreNumber,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
+      #{remarkExtend,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isDelete,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.deao.dal.daomain.auto.AccountRecordModel">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into account_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="recordType != null">
+        record_type,
+      </if>
+      <if test="recordTypeValues != null">
+        record_type_values,
+      </if>
+      <if test="businessType != null">
+        business_type,
+      </if>
+      <if test="businessTypeValues != null">
+        business_type_values,
+      </if>
+      <if test="recordDescribe != null">
+        record_describe,
+      </if>
+      <if test="recordTime != null">
+        record_time,
+      </if>
+      <if test="scoreNumber != null">
+        score_number,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="remarkExtend != null">
+        remark_extend,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="recordType != null">
+        #{recordType,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTypeValues != null">
+        #{recordTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="businessTypeValues != null">
+        #{businessTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="recordDescribe != null">
+        #{recordDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTime != null">
+        #{recordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scoreNumber != null">
+        #{scoreNumber,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remarkExtend != null">
+        #{remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.deao.dal.daomain.auto.AccountRecordModelExample" resultType="java.lang.Integer">
+    select count(*) from account_record
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update account_record
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordType != null">
+        record_type = #{record.recordType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordTypeValues != null">
+        record_type_values = #{record.recordTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessType != null">
+        business_type = #{record.businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessTypeValues != null">
+        business_type_values = #{record.businessTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordDescribe != null">
+        record_describe = #{record.recordDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordTime != null">
+        record_time = #{record.recordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.scoreNumber != null">
+        score_number = #{record.scoreNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remarkExtend != null">
+        remark_extend = #{record.remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isDelete != null">
+        is_delete = #{record.isDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update account_record
+    set id = #{record.id,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      record_type = #{record.recordType,jdbcType=VARCHAR},
+      record_type_values = #{record.recordTypeValues,jdbcType=VARCHAR},
+      business_type = #{record.businessType,jdbcType=VARCHAR},
+      business_type_values = #{record.businessTypeValues,jdbcType=VARCHAR},
+      record_describe = #{record.recordDescribe,jdbcType=VARCHAR},
+      record_time = #{record.recordTime,jdbcType=TIMESTAMP},
+      score_number = #{record.scoreNumber,jdbcType=INTEGER},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      remark_extend = #{record.remarkExtend,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{record.isDelete,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.deao.dal.daomain.auto.AccountRecordModel">
+    update account_record
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="recordType != null">
+        record_type = #{recordType,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTypeValues != null">
+        record_type_values = #{recordTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        business_type = #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="businessTypeValues != null">
+        business_type_values = #{businessTypeValues,jdbcType=VARCHAR},
+      </if>
+      <if test="recordDescribe != null">
+        record_describe = #{recordDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTime != null">
+        record_time = #{recordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scoreNumber != null">
+        score_number = #{scoreNumber,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remarkExtend != null">
+        remark_extend = #{remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.deao.dal.daomain.auto.AccountRecordModel">
+    update account_record
+    set user_id = #{userId,jdbcType=VARCHAR},
+      record_type = #{recordType,jdbcType=VARCHAR},
+      record_type_values = #{recordTypeValues,jdbcType=VARCHAR},
+      business_type = #{businessType,jdbcType=VARCHAR},
+      business_type_values = #{businessTypeValues,jdbcType=VARCHAR},
+      record_describe = #{recordDescribe,jdbcType=VARCHAR},
+      record_time = #{recordTime,jdbcType=TIMESTAMP},
+      score_number = #{scoreNumber,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      remark_extend = #{remarkExtend,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

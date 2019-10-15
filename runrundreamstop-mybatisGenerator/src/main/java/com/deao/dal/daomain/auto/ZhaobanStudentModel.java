@@ -1,0 +1,1586 @@
+package com.deao.dal.daomain.auto;
+
+import java.util.Date;
+
+public class ZhaobanStudentModel {
+    /**
+     * 
+     *
+     * @mbggenerated
+     */
+    private Integer id;
+
+    /**
+     * 学生id，uuid
+     *
+     * @mbggenerated
+     */
+    private String stuId;
+
+    /**
+     * 学生姓名
+     *
+     * @mbggenerated
+     */
+    private String stuName;
+
+    /**
+     * 学生性别
+     *
+     * @mbggenerated
+     */
+    private String sex;
+
+    /**
+     * 民族
+     *
+     * @mbggenerated
+     */
+    private String nation;
+
+    /**
+     * 政治面貌
+     *
+     * @mbggenerated
+     */
+    private String politicalStatus;
+
+    /**
+     * 政治面貌的值
+     *
+     * @mbggenerated
+     */
+    private String politicalStatusValues;
+
+    /**
+     * 身份证号码
+     *
+     * @mbggenerated
+     */
+    private String idNumber;
+
+    /**
+     * 考生号
+     *
+     * @mbggenerated
+     */
+    private String examNumber;
+
+    /**
+     * 科类一
+     *
+     * @mbggenerated
+     */
+    private String classOne;
+
+    /**
+     * 科类二
+     *
+     * @mbggenerated
+     */
+    private String classTwo;
+
+    /**
+     * 中学代码
+     *
+     * @mbggenerated
+     */
+    private String highSchoolCode;
+
+    /**
+     * 中学名称
+     *
+     * @mbggenerated
+     */
+    private String highSchoolName;
+
+    /**
+     * 毕业类别
+     *
+     * @mbggenerated
+     */
+    private String graduateCategory;
+
+    /**
+     * 考生类型
+     *
+     * @mbggenerated
+     */
+    private String examType;
+
+    /**
+     * 考生类型的值
+     *
+     * @mbggenerated
+     */
+    private String examTypeValues;
+
+    /**
+     * 联系电话，可能有多个，用逗号分隔
+     *
+     * @mbggenerated
+     */
+    private String telphone;
+
+    /**
+     * 正确的电话
+     *
+     * @mbggenerated
+     */
+    private String realTelphone;
+
+    /**
+     * 微信号
+     *
+     * @mbggenerated
+     */
+    private String wechat;
+
+    /**
+     * QQ号码
+     *
+     * @mbggenerated
+     */
+    private String qq;
+
+    /**
+     * 邮件号码
+     *
+     * @mbggenerated
+     */
+    private String email;
+
+    /**
+     * 家庭地址
+     *
+     * @mbggenerated
+     */
+    private String address;
+
+    /**
+     * 收件人
+     *
+     * @mbggenerated
+     */
+    private String receiver;
+
+    /**
+     * 投档成绩
+     *
+     * @mbggenerated
+     */
+    private String toudangScore;
+
+    /**
+     * 志愿
+     *
+     * @mbggenerated
+     */
+    private String volunteer;
+
+    /**
+     * 志愿号
+     *
+     * @mbggenerated
+     */
+    private String volunteerNumber;
+
+    /**
+     * 录取专业
+     *
+     * @mbggenerated
+     */
+    private String courseOffered;
+
+    /**
+     * 专业ID
+     *
+     * @mbggenerated
+     */
+    private Integer courseId;
+
+    /**
+     * 院系id
+     *
+     * @mbggenerated
+     */
+    private Integer facultyId;
+
+    /**
+     * 院系名称
+     *
+     * @mbggenerated
+     */
+    private String facultyName;
+
+    /**
+     * 城市ID
+     *
+     * @mbggenerated
+     */
+    private String cityId;
+
+    /**
+     * 城市名
+     *
+     * @mbggenerated
+     */
+    private String cityName;
+
+    /**
+     * 区县id
+     *
+     * @mbggenerated
+     */
+    private String areaId;
+
+    /**
+     * 区县名称
+     *
+     * @mbggenerated
+     */
+    private String areaName;
+
+    /**
+     * 语文
+     *
+     * @mbggenerated
+     */
+    private String yuwen;
+
+    /**
+     * 数学
+     *
+     * @mbggenerated
+     */
+    private String shuxue;
+
+    /**
+     * 英语
+     *
+     * @mbggenerated
+     */
+    private String english;
+
+    /**
+     * 信息技术
+     *
+     * @mbggenerated
+     */
+    private String infoTechnology;
+
+    /**
+     * 通用技术
+     *
+     * @mbggenerated
+     */
+    private String generalTechnology;
+
+    /**
+     * 春招文化素质
+     *
+     * @mbggenerated
+     */
+    private String czCulturalQuality;
+
+    /**
+     * 春招职业技能
+     *
+     * @mbggenerated
+     */
+    private String czVocationalSkills;
+
+    /**
+     * 春招专业技能
+     *
+     * @mbggenerated
+     */
+    private String czProfessionalSkills;
+
+    /**
+     * 春招专业综合
+     *
+     * @mbggenerated
+     */
+    private String czProfessionalIntegration;
+
+    /**
+     * 通知书编号
+     *
+     * @mbggenerated
+     */
+    private String noticeNo;
+
+    /**
+     * 快递编号
+     *
+     * @mbggenerated
+     */
+    private String expressNo;
+
+    /**
+     * 总跟进次数
+     *
+     * @mbggenerated
+     */
+    private Integer followAccount;
+
+    /**
+     * 备注
+     *
+     * @mbggenerated
+     */
+    private String remark;
+
+    /**
+     * 备注扩展
+     *
+     * @mbggenerated
+     */
+    private String remarkExtend;
+
+    /**
+     * 创建时间
+     *
+     * @mbggenerated
+     */
+    private Date createTime;
+
+    /**
+     * 修改时间
+     *
+     * @mbggenerated
+     */
+    private Date updateTime;
+
+    /**
+     * 0未删除 1 已删除
+     *
+     * @mbggenerated
+     */
+    private Integer isDelete;
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.id
+     *
+     * @return the value of zhaoban_student.id
+     *
+     * @mbggenerated
+     */
+    public Integer getId() {
+        return id;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.id
+     *
+     * @param id the value for zhaoban_student.id
+     *
+     * @mbggenerated
+     */
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.stu_id
+     *
+     * @return the value of zhaoban_student.stu_id
+     *
+     * @mbggenerated
+     */
+    public String getStuId() {
+        return stuId;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.stu_id
+     *
+     * @param stuId the value for zhaoban_student.stu_id
+     *
+     * @mbggenerated
+     */
+    public void setStuId(String stuId) {
+        this.stuId = stuId == null ? null : stuId.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.stu_name
+     *
+     * @return the value of zhaoban_student.stu_name
+     *
+     * @mbggenerated
+     */
+    public String getStuName() {
+        return stuName;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.stu_name
+     *
+     * @param stuName the value for zhaoban_student.stu_name
+     *
+     * @mbggenerated
+     */
+    public void setStuName(String stuName) {
+        this.stuName = stuName == null ? null : stuName.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.sex
+     *
+     * @return the value of zhaoban_student.sex
+     *
+     * @mbggenerated
+     */
+    public String getSex() {
+        return sex;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.sex
+     *
+     * @param sex the value for zhaoban_student.sex
+     *
+     * @mbggenerated
+     */
+    public void setSex(String sex) {
+        this.sex = sex == null ? null : sex.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.nation
+     *
+     * @return the value of zhaoban_student.nation
+     *
+     * @mbggenerated
+     */
+    public String getNation() {
+        return nation;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.nation
+     *
+     * @param nation the value for zhaoban_student.nation
+     *
+     * @mbggenerated
+     */
+    public void setNation(String nation) {
+        this.nation = nation == null ? null : nation.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.political_status
+     *
+     * @return the value of zhaoban_student.political_status
+     *
+     * @mbggenerated
+     */
+    public String getPoliticalStatus() {
+        return politicalStatus;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.political_status
+     *
+     * @param politicalStatus the value for zhaoban_student.political_status
+     *
+     * @mbggenerated
+     */
+    public void setPoliticalStatus(String politicalStatus) {
+        this.politicalStatus = politicalStatus == null ? null : politicalStatus.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.political_status_values
+     *
+     * @return the value of zhaoban_student.political_status_values
+     *
+     * @mbggenerated
+     */
+    public String getPoliticalStatusValues() {
+        return politicalStatusValues;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.political_status_values
+     *
+     * @param politicalStatusValues the value for zhaoban_student.political_status_values
+     *
+     * @mbggenerated
+     */
+    public void setPoliticalStatusValues(String politicalStatusValues) {
+        this.politicalStatusValues = politicalStatusValues == null ? null : politicalStatusValues.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.id_number
+     *
+     * @return the value of zhaoban_student.id_number
+     *
+     * @mbggenerated
+     */
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.id_number
+     *
+     * @param idNumber the value for zhaoban_student.id_number
+     *
+     * @mbggenerated
+     */
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber == null ? null : idNumber.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.exam_number
+     *
+     * @return the value of zhaoban_student.exam_number
+     *
+     * @mbggenerated
+     */
+    public String getExamNumber() {
+        return examNumber;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.exam_number
+     *
+     * @param examNumber the value for zhaoban_student.exam_number
+     *
+     * @mbggenerated
+     */
+    public void setExamNumber(String examNumber) {
+        this.examNumber = examNumber == null ? null : examNumber.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.class_one
+     *
+     * @return the value of zhaoban_student.class_one
+     *
+     * @mbggenerated
+     */
+    public String getClassOne() {
+        return classOne;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.class_one
+     *
+     * @param classOne the value for zhaoban_student.class_one
+     *
+     * @mbggenerated
+     */
+    public void setClassOne(String classOne) {
+        this.classOne = classOne == null ? null : classOne.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.class_two
+     *
+     * @return the value of zhaoban_student.class_two
+     *
+     * @mbggenerated
+     */
+    public String getClassTwo() {
+        return classTwo;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.class_two
+     *
+     * @param classTwo the value for zhaoban_student.class_two
+     *
+     * @mbggenerated
+     */
+    public void setClassTwo(String classTwo) {
+        this.classTwo = classTwo == null ? null : classTwo.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.high_school_code
+     *
+     * @return the value of zhaoban_student.high_school_code
+     *
+     * @mbggenerated
+     */
+    public String getHighSchoolCode() {
+        return highSchoolCode;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.high_school_code
+     *
+     * @param highSchoolCode the value for zhaoban_student.high_school_code
+     *
+     * @mbggenerated
+     */
+    public void setHighSchoolCode(String highSchoolCode) {
+        this.highSchoolCode = highSchoolCode == null ? null : highSchoolCode.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.high_school_name
+     *
+     * @return the value of zhaoban_student.high_school_name
+     *
+     * @mbggenerated
+     */
+    public String getHighSchoolName() {
+        return highSchoolName;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.high_school_name
+     *
+     * @param highSchoolName the value for zhaoban_student.high_school_name
+     *
+     * @mbggenerated
+     */
+    public void setHighSchoolName(String highSchoolName) {
+        this.highSchoolName = highSchoolName == null ? null : highSchoolName.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.graduate_category
+     *
+     * @return the value of zhaoban_student.graduate_category
+     *
+     * @mbggenerated
+     */
+    public String getGraduateCategory() {
+        return graduateCategory;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.graduate_category
+     *
+     * @param graduateCategory the value for zhaoban_student.graduate_category
+     *
+     * @mbggenerated
+     */
+    public void setGraduateCategory(String graduateCategory) {
+        this.graduateCategory = graduateCategory == null ? null : graduateCategory.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.exam_type
+     *
+     * @return the value of zhaoban_student.exam_type
+     *
+     * @mbggenerated
+     */
+    public String getExamType() {
+        return examType;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.exam_type
+     *
+     * @param examType the value for zhaoban_student.exam_type
+     *
+     * @mbggenerated
+     */
+    public void setExamType(String examType) {
+        this.examType = examType == null ? null : examType.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.exam_type_values
+     *
+     * @return the value of zhaoban_student.exam_type_values
+     *
+     * @mbggenerated
+     */
+    public String getExamTypeValues() {
+        return examTypeValues;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.exam_type_values
+     *
+     * @param examTypeValues the value for zhaoban_student.exam_type_values
+     *
+     * @mbggenerated
+     */
+    public void setExamTypeValues(String examTypeValues) {
+        this.examTypeValues = examTypeValues == null ? null : examTypeValues.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.telphone
+     *
+     * @return the value of zhaoban_student.telphone
+     *
+     * @mbggenerated
+     */
+    public String getTelphone() {
+        return telphone;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.telphone
+     *
+     * @param telphone the value for zhaoban_student.telphone
+     *
+     * @mbggenerated
+     */
+    public void setTelphone(String telphone) {
+        this.telphone = telphone == null ? null : telphone.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.real_telphone
+     *
+     * @return the value of zhaoban_student.real_telphone
+     *
+     * @mbggenerated
+     */
+    public String getRealTelphone() {
+        return realTelphone;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.real_telphone
+     *
+     * @param realTelphone the value for zhaoban_student.real_telphone
+     *
+     * @mbggenerated
+     */
+    public void setRealTelphone(String realTelphone) {
+        this.realTelphone = realTelphone == null ? null : realTelphone.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.wechat
+     *
+     * @return the value of zhaoban_student.wechat
+     *
+     * @mbggenerated
+     */
+    public String getWechat() {
+        return wechat;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.wechat
+     *
+     * @param wechat the value for zhaoban_student.wechat
+     *
+     * @mbggenerated
+     */
+    public void setWechat(String wechat) {
+        this.wechat = wechat == null ? null : wechat.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.qq
+     *
+     * @return the value of zhaoban_student.qq
+     *
+     * @mbggenerated
+     */
+    public String getQq() {
+        return qq;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.qq
+     *
+     * @param qq the value for zhaoban_student.qq
+     *
+     * @mbggenerated
+     */
+    public void setQq(String qq) {
+        this.qq = qq == null ? null : qq.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.email
+     *
+     * @return the value of zhaoban_student.email
+     *
+     * @mbggenerated
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.email
+     *
+     * @param email the value for zhaoban_student.email
+     *
+     * @mbggenerated
+     */
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.address
+     *
+     * @return the value of zhaoban_student.address
+     *
+     * @mbggenerated
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.address
+     *
+     * @param address the value for zhaoban_student.address
+     *
+     * @mbggenerated
+     */
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.receiver
+     *
+     * @return the value of zhaoban_student.receiver
+     *
+     * @mbggenerated
+     */
+    public String getReceiver() {
+        return receiver;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.receiver
+     *
+     * @param receiver the value for zhaoban_student.receiver
+     *
+     * @mbggenerated
+     */
+    public void setReceiver(String receiver) {
+        this.receiver = receiver == null ? null : receiver.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.toudang_score
+     *
+     * @return the value of zhaoban_student.toudang_score
+     *
+     * @mbggenerated
+     */
+    public String getToudangScore() {
+        return toudangScore;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.toudang_score
+     *
+     * @param toudangScore the value for zhaoban_student.toudang_score
+     *
+     * @mbggenerated
+     */
+    public void setToudangScore(String toudangScore) {
+        this.toudangScore = toudangScore == null ? null : toudangScore.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.volunteer
+     *
+     * @return the value of zhaoban_student.volunteer
+     *
+     * @mbggenerated
+     */
+    public String getVolunteer() {
+        return volunteer;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.volunteer
+     *
+     * @param volunteer the value for zhaoban_student.volunteer
+     *
+     * @mbggenerated
+     */
+    public void setVolunteer(String volunteer) {
+        this.volunteer = volunteer == null ? null : volunteer.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.volunteer_number
+     *
+     * @return the value of zhaoban_student.volunteer_number
+     *
+     * @mbggenerated
+     */
+    public String getVolunteerNumber() {
+        return volunteerNumber;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.volunteer_number
+     *
+     * @param volunteerNumber the value for zhaoban_student.volunteer_number
+     *
+     * @mbggenerated
+     */
+    public void setVolunteerNumber(String volunteerNumber) {
+        this.volunteerNumber = volunteerNumber == null ? null : volunteerNumber.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.course_offered
+     *
+     * @return the value of zhaoban_student.course_offered
+     *
+     * @mbggenerated
+     */
+    public String getCourseOffered() {
+        return courseOffered;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.course_offered
+     *
+     * @param courseOffered the value for zhaoban_student.course_offered
+     *
+     * @mbggenerated
+     */
+    public void setCourseOffered(String courseOffered) {
+        this.courseOffered = courseOffered == null ? null : courseOffered.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.course_id
+     *
+     * @return the value of zhaoban_student.course_id
+     *
+     * @mbggenerated
+     */
+    public Integer getCourseId() {
+        return courseId;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.course_id
+     *
+     * @param courseId the value for zhaoban_student.course_id
+     *
+     * @mbggenerated
+     */
+    public void setCourseId(Integer courseId) {
+        this.courseId = courseId;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.faculty_id
+     *
+     * @return the value of zhaoban_student.faculty_id
+     *
+     * @mbggenerated
+     */
+    public Integer getFacultyId() {
+        return facultyId;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.faculty_id
+     *
+     * @param facultyId the value for zhaoban_student.faculty_id
+     *
+     * @mbggenerated
+     */
+    public void setFacultyId(Integer facultyId) {
+        this.facultyId = facultyId;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.faculty_name
+     *
+     * @return the value of zhaoban_student.faculty_name
+     *
+     * @mbggenerated
+     */
+    public String getFacultyName() {
+        return facultyName;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.faculty_name
+     *
+     * @param facultyName the value for zhaoban_student.faculty_name
+     *
+     * @mbggenerated
+     */
+    public void setFacultyName(String facultyName) {
+        this.facultyName = facultyName == null ? null : facultyName.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.city_id
+     *
+     * @return the value of zhaoban_student.city_id
+     *
+     * @mbggenerated
+     */
+    public String getCityId() {
+        return cityId;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.city_id
+     *
+     * @param cityId the value for zhaoban_student.city_id
+     *
+     * @mbggenerated
+     */
+    public void setCityId(String cityId) {
+        this.cityId = cityId == null ? null : cityId.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.city_name
+     *
+     * @return the value of zhaoban_student.city_name
+     *
+     * @mbggenerated
+     */
+    public String getCityName() {
+        return cityName;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.city_name
+     *
+     * @param cityName the value for zhaoban_student.city_name
+     *
+     * @mbggenerated
+     */
+    public void setCityName(String cityName) {
+        this.cityName = cityName == null ? null : cityName.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.area_id
+     *
+     * @return the value of zhaoban_student.area_id
+     *
+     * @mbggenerated
+     */
+    public String getAreaId() {
+        return areaId;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.area_id
+     *
+     * @param areaId the value for zhaoban_student.area_id
+     *
+     * @mbggenerated
+     */
+    public void setAreaId(String areaId) {
+        this.areaId = areaId == null ? null : areaId.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.area_name
+     *
+     * @return the value of zhaoban_student.area_name
+     *
+     * @mbggenerated
+     */
+    public String getAreaName() {
+        return areaName;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.area_name
+     *
+     * @param areaName the value for zhaoban_student.area_name
+     *
+     * @mbggenerated
+     */
+    public void setAreaName(String areaName) {
+        this.areaName = areaName == null ? null : areaName.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.yuwen
+     *
+     * @return the value of zhaoban_student.yuwen
+     *
+     * @mbggenerated
+     */
+    public String getYuwen() {
+        return yuwen;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.yuwen
+     *
+     * @param yuwen the value for zhaoban_student.yuwen
+     *
+     * @mbggenerated
+     */
+    public void setYuwen(String yuwen) {
+        this.yuwen = yuwen == null ? null : yuwen.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.shuxue
+     *
+     * @return the value of zhaoban_student.shuxue
+     *
+     * @mbggenerated
+     */
+    public String getShuxue() {
+        return shuxue;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.shuxue
+     *
+     * @param shuxue the value for zhaoban_student.shuxue
+     *
+     * @mbggenerated
+     */
+    public void setShuxue(String shuxue) {
+        this.shuxue = shuxue == null ? null : shuxue.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.english
+     *
+     * @return the value of zhaoban_student.english
+     *
+     * @mbggenerated
+     */
+    public String getEnglish() {
+        return english;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.english
+     *
+     * @param english the value for zhaoban_student.english
+     *
+     * @mbggenerated
+     */
+    public void setEnglish(String english) {
+        this.english = english == null ? null : english.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.info_technology
+     *
+     * @return the value of zhaoban_student.info_technology
+     *
+     * @mbggenerated
+     */
+    public String getInfoTechnology() {
+        return infoTechnology;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.info_technology
+     *
+     * @param infoTechnology the value for zhaoban_student.info_technology
+     *
+     * @mbggenerated
+     */
+    public void setInfoTechnology(String infoTechnology) {
+        this.infoTechnology = infoTechnology == null ? null : infoTechnology.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.general_technology
+     *
+     * @return the value of zhaoban_student.general_technology
+     *
+     * @mbggenerated
+     */
+    public String getGeneralTechnology() {
+        return generalTechnology;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.general_technology
+     *
+     * @param generalTechnology the value for zhaoban_student.general_technology
+     *
+     * @mbggenerated
+     */
+    public void setGeneralTechnology(String generalTechnology) {
+        this.generalTechnology = generalTechnology == null ? null : generalTechnology.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.cz_cultural_quality
+     *
+     * @return the value of zhaoban_student.cz_cultural_quality
+     *
+     * @mbggenerated
+     */
+    public String getCzCulturalQuality() {
+        return czCulturalQuality;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.cz_cultural_quality
+     *
+     * @param czCulturalQuality the value for zhaoban_student.cz_cultural_quality
+     *
+     * @mbggenerated
+     */
+    public void setCzCulturalQuality(String czCulturalQuality) {
+        this.czCulturalQuality = czCulturalQuality == null ? null : czCulturalQuality.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.cz_vocational_skills
+     *
+     * @return the value of zhaoban_student.cz_vocational_skills
+     *
+     * @mbggenerated
+     */
+    public String getCzVocationalSkills() {
+        return czVocationalSkills;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.cz_vocational_skills
+     *
+     * @param czVocationalSkills the value for zhaoban_student.cz_vocational_skills
+     *
+     * @mbggenerated
+     */
+    public void setCzVocationalSkills(String czVocationalSkills) {
+        this.czVocationalSkills = czVocationalSkills == null ? null : czVocationalSkills.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.cz_professional_skills
+     *
+     * @return the value of zhaoban_student.cz_professional_skills
+     *
+     * @mbggenerated
+     */
+    public String getCzProfessionalSkills() {
+        return czProfessionalSkills;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.cz_professional_skills
+     *
+     * @param czProfessionalSkills the value for zhaoban_student.cz_professional_skills
+     *
+     * @mbggenerated
+     */
+    public void setCzProfessionalSkills(String czProfessionalSkills) {
+        this.czProfessionalSkills = czProfessionalSkills == null ? null : czProfessionalSkills.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.cz_professional_integration
+     *
+     * @return the value of zhaoban_student.cz_professional_integration
+     *
+     * @mbggenerated
+     */
+    public String getCzProfessionalIntegration() {
+        return czProfessionalIntegration;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.cz_professional_integration
+     *
+     * @param czProfessionalIntegration the value for zhaoban_student.cz_professional_integration
+     *
+     * @mbggenerated
+     */
+    public void setCzProfessionalIntegration(String czProfessionalIntegration) {
+        this.czProfessionalIntegration = czProfessionalIntegration == null ? null : czProfessionalIntegration.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.notice_no
+     *
+     * @return the value of zhaoban_student.notice_no
+     *
+     * @mbggenerated
+     */
+    public String getNoticeNo() {
+        return noticeNo;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.notice_no
+     *
+     * @param noticeNo the value for zhaoban_student.notice_no
+     *
+     * @mbggenerated
+     */
+    public void setNoticeNo(String noticeNo) {
+        this.noticeNo = noticeNo == null ? null : noticeNo.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.express_no
+     *
+     * @return the value of zhaoban_student.express_no
+     *
+     * @mbggenerated
+     */
+    public String getExpressNo() {
+        return expressNo;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.express_no
+     *
+     * @param expressNo the value for zhaoban_student.express_no
+     *
+     * @mbggenerated
+     */
+    public void setExpressNo(String expressNo) {
+        this.expressNo = expressNo == null ? null : expressNo.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.follow_account
+     *
+     * @return the value of zhaoban_student.follow_account
+     *
+     * @mbggenerated
+     */
+    public Integer getFollowAccount() {
+        return followAccount;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.follow_account
+     *
+     * @param followAccount the value for zhaoban_student.follow_account
+     *
+     * @mbggenerated
+     */
+    public void setFollowAccount(Integer followAccount) {
+        this.followAccount = followAccount;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.remark
+     *
+     * @return the value of zhaoban_student.remark
+     *
+     * @mbggenerated
+     */
+    public String getRemark() {
+        return remark;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.remark
+     *
+     * @param remark the value for zhaoban_student.remark
+     *
+     * @mbggenerated
+     */
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.remark_extend
+     *
+     * @return the value of zhaoban_student.remark_extend
+     *
+     * @mbggenerated
+     */
+    public String getRemarkExtend() {
+        return remarkExtend;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.remark_extend
+     *
+     * @param remarkExtend the value for zhaoban_student.remark_extend
+     *
+     * @mbggenerated
+     */
+    public void setRemarkExtend(String remarkExtend) {
+        this.remarkExtend = remarkExtend == null ? null : remarkExtend.trim();
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.create_time
+     *
+     * @return the value of zhaoban_student.create_time
+     *
+     * @mbggenerated
+     */
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.create_time
+     *
+     * @param createTime the value for zhaoban_student.create_time
+     *
+     * @mbggenerated
+     */
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.update_time
+     *
+     * @return the value of zhaoban_student.update_time
+     *
+     * @mbggenerated
+     */
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.update_time
+     *
+     * @param updateTime the value for zhaoban_student.update_time
+     *
+     * @mbggenerated
+     */
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method returns the value of the database column zhaoban_student.is_delete
+     *
+     * @return the value of zhaoban_student.is_delete
+     *
+     * @mbggenerated
+     */
+    public Integer getIsDelete() {
+        return isDelete;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method sets the value of the database column zhaoban_student.is_delete
+     *
+     * @param isDelete the value for zhaoban_student.is_delete
+     *
+     * @mbggenerated
+     */
+    public void setIsDelete(Integer isDelete) {
+        this.isDelete = isDelete;
+    }
+}

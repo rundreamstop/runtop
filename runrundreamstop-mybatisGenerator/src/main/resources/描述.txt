@@ -1,0 +1,10 @@
+
+mybatisgerator 自动生成代码
+
+1.修改 generatorConfig.xml 等配置, 如 存放地址  数据库连接等
+
+2.执行java下面的Main 方法就ok
+
+3.执行完后 查看 dao层  model层  sqlmap 层
+
+备注:该项目为 maven 项目   你懂得

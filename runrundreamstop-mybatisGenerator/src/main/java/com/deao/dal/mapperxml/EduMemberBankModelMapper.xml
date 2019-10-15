@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.deao.dal.dao.auto.EduMemberBankModelMapper" >
+  <resultMap id="BaseResultMap" type="com.deao.dal.daomain.auto.EduMemberBankModel" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="school_year" property="schoolYear" jdbcType="VARCHAR" />
+    <result column="semester" property="semester" jdbcType="VARCHAR" />
+    <result column="course_title" property="courseTitle" jdbcType="VARCHAR" />
+    <result column="course_nature" property="courseNature" jdbcType="VARCHAR" />
+    <result column="course_code" property="courseCode" jdbcType="VARCHAR" />
+    <result column="course_hours" property="courseHours" jdbcType="VARCHAR" />
+    <result column="course_type" property="courseType" jdbcType="VARCHAR" />
+    <result column="exam_nature" property="examNature" jdbcType="VARCHAR" />
+    <result column="exam_type" property="examType" jdbcType="VARCHAR" />
+    <result column="exam_record" property="examRecord" jdbcType="VARCHAR" />
+    <result column="rebuild_semester" property="rebuildSemester" jdbcType="VARCHAR" />
+    <result column="grade" property="grade" jdbcType="VARCHAR" />
+    <result column="grade_point" property="gradePoint" jdbcType="VARCHAR" />
+    <result column="credit" property="credit" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="remark_extend" property="remarkExtend" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, user_id, school_year, semester, course_title, course_nature, course_code, course_hours, 
+    course_type, exam_nature, exam_type, exam_record, rebuild_semester, grade, grade_point, 
+    credit, remark, remark_extend, create_time, update_time, is_delete
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.deao.dal.daomain.auto.EduMemberBankModelExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from edu_member_bank
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from edu_member_bank
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from edu_member_bank
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.deao.dal.daomain.auto.EduMemberBankModelExample" >
+    delete from edu_member_bank
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.deao.dal.daomain.auto.EduMemberBankModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into edu_member_bank (user_id, school_year, semester, 
+      course_title, course_nature, course_code, 
+      course_hours, course_type, exam_nature, 
+      exam_type, exam_record, rebuild_semester, 
+      grade, grade_point, credit, 
+      remark, remark_extend, create_time, 
+      update_time, is_delete)
+    values (#{userId,jdbcType=VARCHAR}, #{schoolYear,jdbcType=VARCHAR}, #{semester,jdbcType=VARCHAR}, 
+      #{courseTitle,jdbcType=VARCHAR}, #{courseNature,jdbcType=VARCHAR}, #{courseCode,jdbcType=VARCHAR}, 
+      #{courseHours,jdbcType=VARCHAR}, #{courseType,jdbcType=VARCHAR}, #{examNature,jdbcType=VARCHAR}, 
+      #{examType,jdbcType=VARCHAR}, #{examRecord,jdbcType=VARCHAR}, #{rebuildSemester,jdbcType=VARCHAR}, 
+      #{grade,jdbcType=VARCHAR}, #{gradePoint,jdbcType=VARCHAR}, #{credit,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{remarkExtend,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.deao.dal.daomain.auto.EduMemberBankModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into edu_member_bank
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="schoolYear != null" >
+        school_year,
+      </if>
+      <if test="semester != null" >
+        semester,
+      </if>
+      <if test="courseTitle != null" >
+        course_title,
+      </if>
+      <if test="courseNature != null" >
+        course_nature,
+      </if>
+      <if test="courseCode != null" >
+        course_code,
+      </if>
+      <if test="courseHours != null" >
+        course_hours,
+      </if>
+      <if test="courseType != null" >
+        course_type,
+      </if>
+      <if test="examNature != null" >
+        exam_nature,
+      </if>
+      <if test="examType != null" >
+        exam_type,
+      </if>
+      <if test="examRecord != null" >
+        exam_record,
+      </if>
+      <if test="rebuildSemester != null" >
+        rebuild_semester,
+      </if>
+      <if test="grade != null" >
+        grade,
+      </if>
+      <if test="gradePoint != null" >
+        grade_point,
+      </if>
+      <if test="credit != null" >
+        credit,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="remarkExtend != null" >
+        remark_extend,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolYear != null" >
+        #{schoolYear,jdbcType=VARCHAR},
+      </if>
+      <if test="semester != null" >
+        #{semester,jdbcType=VARCHAR},
+      </if>
+      <if test="courseTitle != null" >
+        #{courseTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="courseNature != null" >
+        #{courseNature,jdbcType=VARCHAR},
+      </if>
+      <if test="courseCode != null" >
+        #{courseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="courseHours != null" >
+        #{courseHours,jdbcType=VARCHAR},
+      </if>
+      <if test="courseType != null" >
+        #{courseType,jdbcType=VARCHAR},
+      </if>
+      <if test="examNature != null" >
+        #{examNature,jdbcType=VARCHAR},
+      </if>
+      <if test="examType != null" >
+        #{examType,jdbcType=VARCHAR},
+      </if>
+      <if test="examRecord != null" >
+        #{examRecord,jdbcType=VARCHAR},
+      </if>
+      <if test="rebuildSemester != null" >
+        #{rebuildSemester,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="gradePoint != null" >
+        #{gradePoint,jdbcType=VARCHAR},
+      </if>
+      <if test="credit != null" >
+        #{credit,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remarkExtend != null" >
+        #{remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.deao.dal.daomain.auto.EduMemberBankModelExample" resultType="java.lang.Integer" >
+    select count(*) from edu_member_bank
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update edu_member_bank
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.schoolYear != null" >
+        school_year = #{record.schoolYear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.semester != null" >
+        semester = #{record.semester,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseTitle != null" >
+        course_title = #{record.courseTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseNature != null" >
+        course_nature = #{record.courseNature,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseCode != null" >
+        course_code = #{record.courseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseHours != null" >
+        course_hours = #{record.courseHours,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseType != null" >
+        course_type = #{record.courseType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.examNature != null" >
+        exam_nature = #{record.examNature,jdbcType=VARCHAR},
+      </if>
+      <if test="record.examType != null" >
+        exam_type = #{record.examType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.examRecord != null" >
+        exam_record = #{record.examRecord,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rebuildSemester != null" >
+        rebuild_semester = #{record.rebuildSemester,jdbcType=VARCHAR},
+      </if>
+      <if test="record.grade != null" >
+        grade = #{record.grade,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gradePoint != null" >
+        grade_point = #{record.gradePoint,jdbcType=VARCHAR},
+      </if>
+      <if test="record.credit != null" >
+        credit = #{record.credit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remarkExtend != null" >
+        remark_extend = #{record.remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isDelete != null" >
+        is_delete = #{record.isDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update edu_member_bank
+    set id = #{record.id,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      school_year = #{record.schoolYear,jdbcType=VARCHAR},
+      semester = #{record.semester,jdbcType=VARCHAR},
+      course_title = #{record.courseTitle,jdbcType=VARCHAR},
+      course_nature = #{record.courseNature,jdbcType=VARCHAR},
+      course_code = #{record.courseCode,jdbcType=VARCHAR},
+      course_hours = #{record.courseHours,jdbcType=VARCHAR},
+      course_type = #{record.courseType,jdbcType=VARCHAR},
+      exam_nature = #{record.examNature,jdbcType=VARCHAR},
+      exam_type = #{record.examType,jdbcType=VARCHAR},
+      exam_record = #{record.examRecord,jdbcType=VARCHAR},
+      rebuild_semester = #{record.rebuildSemester,jdbcType=VARCHAR},
+      grade = #{record.grade,jdbcType=VARCHAR},
+      grade_point = #{record.gradePoint,jdbcType=VARCHAR},
+      credit = #{record.credit,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      remark_extend = #{record.remarkExtend,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{record.isDelete,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.deao.dal.daomain.auto.EduMemberBankModel" >
+    update edu_member_bank
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolYear != null" >
+        school_year = #{schoolYear,jdbcType=VARCHAR},
+      </if>
+      <if test="semester != null" >
+        semester = #{semester,jdbcType=VARCHAR},
+      </if>
+      <if test="courseTitle != null" >
+        course_title = #{courseTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="courseNature != null" >
+        course_nature = #{courseNature,jdbcType=VARCHAR},
+      </if>
+      <if test="courseCode != null" >
+        course_code = #{courseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="courseHours != null" >
+        course_hours = #{courseHours,jdbcType=VARCHAR},
+      </if>
+      <if test="courseType != null" >
+        course_type = #{courseType,jdbcType=VARCHAR},
+      </if>
+      <if test="examNature != null" >
+        exam_nature = #{examNature,jdbcType=VARCHAR},
+      </if>
+      <if test="examType != null" >
+        exam_type = #{examType,jdbcType=VARCHAR},
+      </if>
+      <if test="examRecord != null" >
+        exam_record = #{examRecord,jdbcType=VARCHAR},
+      </if>
+      <if test="rebuildSemester != null" >
+        rebuild_semester = #{rebuildSemester,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        grade = #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="gradePoint != null" >
+        grade_point = #{gradePoint,jdbcType=VARCHAR},
+      </if>
+      <if test="credit != null" >
+        credit = #{credit,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remarkExtend != null" >
+        remark_extend = #{remarkExtend,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.deao.dal.daomain.auto.EduMemberBankModel" >
+    update edu_member_bank
+    set user_id = #{userId,jdbcType=VARCHAR},
+      school_year = #{schoolYear,jdbcType=VARCHAR},
+      semester = #{semester,jdbcType=VARCHAR},
+      course_title = #{courseTitle,jdbcType=VARCHAR},
+      course_nature = #{courseNature,jdbcType=VARCHAR},
+      course_code = #{courseCode,jdbcType=VARCHAR},
+      course_hours = #{courseHours,jdbcType=VARCHAR},
+      course_type = #{courseType,jdbcType=VARCHAR},
+      exam_nature = #{examNature,jdbcType=VARCHAR},
+      exam_type = #{examType,jdbcType=VARCHAR},
+      exam_record = #{examRecord,jdbcType=VARCHAR},
+      rebuild_semester = #{rebuildSemester,jdbcType=VARCHAR},
+      grade = #{grade,jdbcType=VARCHAR},
+      grade_point = #{gradePoint,jdbcType=VARCHAR},
+      credit = #{credit,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      remark_extend = #{remarkExtend,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
