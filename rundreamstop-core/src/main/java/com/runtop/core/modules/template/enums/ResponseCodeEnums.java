@@ -1,7 +1,7 @@
 package com.runtop.core.modules.template.enums;
 
 
-import com.deao.modules.template.base.BaseEnum;
+import com.runtop.core.modules.template.base.BaseEnum;
 
 /**
  * 追忆寻梦

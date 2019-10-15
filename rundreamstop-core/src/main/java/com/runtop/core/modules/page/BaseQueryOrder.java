@@ -1,6 +1,6 @@
 package com.runtop.core.modules.page;
 
-import com.deao.modules.utils.StringUtil;
+import com.runtop.core.modules.utils.StringUtil;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 

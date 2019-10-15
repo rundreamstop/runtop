@@ -1,7 +1,7 @@
 package com.runtop.core.modules.template.base;
 
 
-import com.deao.modules.template.services.BaseResponseDTO;
+import com.runtop.core.modules.template.services.BaseResponseDTO;
 
 /**
  * 简单的模板方法

@@ -1,6 +1,6 @@
 package com.runtop.core.modules.result;
 
-import com.deao.modules.template.enums.ResponseCodeEnums;
+import com.runtop.core.modules.template.enums.ResponseCodeEnums;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
