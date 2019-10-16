@@ -468,19 +468,15 @@
     </dependencyManagement>
 
     <!-- maven基本配置 开始 -->
-
-    <!-- 开发测试环境 -->
     <distributionManagement>
-        <repository>
-            <id>nexus</id>
-            <name>Releases</name>
-            <url>http://test.nexus.learnfere.cn/repository/deao-dev-test/</url>
-        </repository>
         <snapshotRepository>
-            <id>nexus</id>
-            <name>Snapshot</name>
-            <url>http://test.nexus.learnfere.cn/repository/deao-dev-test/</url>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
         </snapshotRepository>
+        <repository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
     </distributionManagement>
 
 </project>
