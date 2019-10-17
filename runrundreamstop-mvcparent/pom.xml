@@ -467,16 +467,16 @@
         </dependencies>
     </dependencyManagement>
 
-    <!-- maven基本配置 开始 -->
+    <!-- 阿里云厂库配置 -->
     <distributionManagement>
-        <snapshotRepository>
-            <id>oss</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        </snapshotRepository>
         <repository>
-            <id>oss</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>rdc-releases</id>
+            <url>https://repo.rdc.aliyun.com/repository/15706-release-GRhKjz/</url>
         </repository>
+        <snapshotRepository>
+            <id>rdc-snapshots</id>
+            <url>https://repo.rdc.aliyun.com/repository/15706-snapshot-JPWcbz/</url>
+        </snapshotRepository>
     </distributionManagement>
 
 </project>
