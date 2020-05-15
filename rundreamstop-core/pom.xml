@@ -41,7 +41,7 @@
         <hibernate-validator.version>5.3.4.Final</hibernate-validator.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
         <javax.el-api.version>3.0.1-b06</javax.el-api.version>
-        <jackson-databind.version>2.9.5</jackson-databind.version>
+        <jackson-databind.version>2.11.0</jackson-databind.version>
         <email.version>1.4.5</email.version>
         <org.apache.commons.version>3.3.2</org.apache.commons.version>
         <org.apache.httpcomponents.version>4.5.3</org.apache.httpcomponents.version>
