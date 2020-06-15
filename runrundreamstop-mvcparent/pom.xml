@@ -56,7 +56,7 @@
         <com.google.info.version>3.2.1</com.google.info.version>
         <com.google.guava.verion>18.0</com.google.guava.verion>
         <commons-lang.version>2.6</commons-lang.version>
-        <hibernate-validator.version>5.3.4.Final</hibernate-validator.version>
+        <hibernate-validator.version>5.3.5.Final</hibernate-validator.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
         <javax.el-api.version>3.0.1-b06</javax.el-api.version>
         <jackson-databind.version>2.9.5</jackson-databind.version>
