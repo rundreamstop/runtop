@@ -62,7 +62,7 @@
         <jackson-databind.version>2.9.5</jackson-databind.version>
         <email.version>1.4.5</email.version>
         <org.apache.commons.version>3.3.2</org.apache.commons.version>
-        <org.apache.httpcomponents.version>4.5.3</org.apache.httpcomponents.version>
+        <org.apache.httpcomponents.version>4.5.13</org.apache.httpcomponents.version>
         <javaee-api.version>7.0</javaee-api.version>
         <jackson-mapper-asl.version>1.9.13</jackson-mapper-asl.version>
         <jxl.version>2.6.10</jxl.version>
